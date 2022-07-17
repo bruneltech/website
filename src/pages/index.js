@@ -13,6 +13,8 @@ import "./homePage.scss"
 // Component Imports
 import Menu from "../components/Menu";
 import IndexHero from "../components/IndexHero/IndexHero";
+import RecentPosts from "../components/RecentPosts/RecentPosts";
+import FeaturedCategory from "../components/FeaturedCategory/FeaturedCategory";
 
 // markup
 const IndexPage = () => {
@@ -35,15 +37,20 @@ const IndexPage = () => {
         <title>Brunel Tech Society</title>
         <link rel="canonical" href="https://bruneltech.net" />
 
-        <meta name="description" content="TECHSOC DESCRIPTION HERE" />
+        <meta name="description" content="The Tech Community & BCS Student Chapter at Brunel University London" />
         <meta name="theme-color" content="#41268F" />
         </Helmet>
         
       <Menu/>
 
       <IndexHero/>
+
+      {/* Upcoming Events would go here. Extension not fully ready yet. */}
       
-      {/* Countdown until hacking begins */}
+      {/* Recent Posts */}
+      <RecentPosts/>
+
+      <FeaturedCategory slug="society-news"/>
     </main>
   )
 }

@@ -1,0 +1,88 @@
+.recentPostsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+
+    .recentPostsContent{
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        //align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
+
+        .sectionTitle{
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            font-family: 'Raleway', sans-serif;
+        }
+
+
+
+        .recentPostsItems{
+            // Responsive grid funny time
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 1rem;
+            width: 100%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+
+            .recentPostItem{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+
+                a{
+                    width: 100%;
+                }
+
+                overflow: hidden;
+
+                .recentPost{
+                    width: 320px;
+                    height: 525px;
+                    
+                    overflow: hidden;
+
+                    background-color: white;
+
+                    .recentPostImage{
+                        width: 100%;
+                        height: 230px;
+                        margin-bottom: 2rem;
+
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+
+                        overflow: hidden;
+
+                        transition: .5s;
+                        
+                    }
+
+                    // On hover zoom the image in slightly, but keep it contained in the box
+                    &:hover{
+                        .recentPostImage{
+                            transform: scale(1.55);
+                        }
+                    }
+
+                    .recentPostMeta{
+                        margin-top: -10px;
+                        padding: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

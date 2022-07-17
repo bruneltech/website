@@ -37,7 +37,7 @@ const IndexHero = () => {
         }
     `);
 
-    const [buttonUrl, setButtonUrl] = React.useState("");
+    const [buttonUrl, setButtonUrl] = React.useState("https://brunelstudents.com/societies/tech/");
     const [buttonText, setButtonText] = React.useState("Join Us");
     const [heroTitle, setHeroTitle] = React.useState("The Tech Community & BCS Student Chapter @ Brunel University");
     const [heroBackground, setHeroBackground] = React.useState(DefaultHeroImg);
@@ -87,7 +87,7 @@ const IndexHero = () => {
             <div className="heroContent">
                 {/* If ShowFeaturedIndicator is true, display the featured indicator */}
                 {showFeaturedIndicator &&
-                    <h3 className="featuredPostIndicator">FEATURED POST</h3>
+                    <h3 className="featuredPostIndicator">FEATURED</h3>
                 }
 
                 <motion.h1 className="heroTitle" initial={{opacity: 0}} animate={{opacity: 1}}>
