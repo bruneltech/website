@@ -43,17 +43,25 @@ const IndexHero = () => {
     const [heroBackground, setHeroBackground] = React.useState(DefaultHeroImg);
     const [showFeaturedIndicator, setShowFeaturedIndicator] = React.useState(false);
     const [darkenImage, setDarkenImage] = React.useState(false);
+    
+    const [currentSlide, setCurrentSlide] = React.useState(0);
+    const [btnOverride, setBtnOverride] = React.useState(false);
 
     var postCount = 0;
 
     useEffect(() => {
+        // really silly way of stopping the effect hook from erroring out when it's not on the index page.
+        // as for some reason in a few cases in the dev environment it'll still try running even though its unmounted??
+        if (window.location.pathname !== "/") {
+            return;
+        }
         if (data.allWpPost.edges.length > 0) {
             // Every 5 seconds, change to a new post. Every few posts, revert to default.
             const interval = setInterval(() => {
                 if(postCount > data.allWpPost.edges.length - 1){
                     console.log("resetting to default")
                     postCount = 0;
-                    setButtonUrl("");
+                    setButtonUrl("https://brunelstudents.com/societies/tech/");
                     setButtonText("Join Us");
                     setHeroTitle("The Tech Community & BCS Student Chapter @ Brunel University");
                     setHeroBackground(DefaultHeroImg);
@@ -71,11 +79,56 @@ const IndexHero = () => {
 
                     postCount++;    
                 }
+
+                const buttons = document.getElementsByClassName("selector");
+                for (let i = 0; i < buttons.length; i++) {
+                    buttons[i].classList.remove("selected");
+                }
+                buttons[postCount].classList.add("selected");
             }
             , 5000);
+
+            if(btnOverride){
+                interval.refresh(); // Resets the timer to prevent any conflicts
+                setBtnOverride(false); // Turns off the override
+            }
         }
     }
     , []);
+    
+
+    const changeSlide = (e) => {
+        // Find btnindex
+        const btnindex = e.target.getAttribute("btnindex");
+        setBtnOverride(true);
+        if(btnindex == 0){
+            postCount = 0;
+            setButtonUrl("");
+            setButtonText("Join Us");
+            setHeroTitle("The Tech Community & BCS Student Chapter @ Brunel University");
+            setHeroBackground(DefaultHeroImg);
+            setShowFeaturedIndicator(false);
+            setDarkenImage(false);
+        }else{
+            const post = data.allWpPost.edges[btnindex-1];
+            setButtonUrl(post.node.link);
+            setButtonText("Read More");
+            setHeroTitle(post.node.title);
+            setHeroBackground(post.node.featuredImage.node.localFile.childImageSharp.fluid.originalImg);
+            setShowFeaturedIndicator(true);
+            setDarkenImage(true);
+
+            postCount = btnindex -1;
+        }
+
+        // Add "selected" class to button
+        const buttons = document.getElementsByClassName("selector");
+        for(let i = 0; i < buttons.length; i++){
+            buttons[i].classList.remove("selected");
+        }
+        e.target.classList.add("selected");
+    }
+
     
 
     return(
@@ -99,6 +152,17 @@ const IndexHero = () => {
                         <button className="heroButton button-blue">{buttonText}</button>
                     </a>
                 </motion.div>
+            </div>
+
+            <div className="featuredRollSelector">
+                <div btnindex="0" key="0" onClick={changeSlide} className="selector selected"/>
+
+                {/* For each post, display a button that will link to the post's slide on the carousel */}
+                {data.allWpPost.edges.map((post, index) => {
+                    return(
+                        <div btnindex={index+1} key={index+1} onClick={changeSlide}className="selector"/>
+                    )
+                })}
             </div>
 
                 {/* <h1>{heroTitle}</h1>

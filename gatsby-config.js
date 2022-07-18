@@ -15,7 +15,7 @@ module.exports = {
       //"url": "https://pyxl.blog/graphql"
       "url": "https://bruneltech.net/graphql",
       html: {
-        useGatsbyImage: false
+        useGatsbyImage: true
       }
     }
   }, "gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {

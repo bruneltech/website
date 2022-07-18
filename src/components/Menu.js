@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Link, useStaticQuery, graphql } from 'gatsby';
 import {StaticImage} from "gatsby-plugin-image";
-import {FaSearch, FaChevronRight} from "react-icons/fa";
+import {FaSearch, FaChevronRight, FaHamburger} from "react-icons/fa";
+import {GiHamburgerMenu} from "react-icons/gi";
 
 
 // Create a component called Menu with the results from the query.
@@ -47,6 +48,24 @@ const Menu = ({ children }) => {
 
         e.target.classList.toggle("open");
         dropdown.classList.toggle("open");
+    }
+
+    const [mOpen, setMOpen] = React.useState(false);
+    
+    const openMobileMenu = () => {
+        // Open mobile menu
+        const mobileMenu = document.querySelector(".navElements_M_Content");
+        const mainBar = document.querySelector(".menuContainer");
+
+        mobileMenu.classList.toggle("m_open");
+        mainBar.classList.toggle("m_open");
+
+        setMOpen(!mOpen);
+    }
+    
+    // track clicks
+    const trackClick = (e) => {
+        console.log("aaaa");
     }
 
     //const [isDropDownOpen, setIsDropDownOpen] = React.useState(false);
@@ -95,6 +114,46 @@ const Menu = ({ children }) => {
                         }
                     }
                     )}
+
+
+                    <FaSearch className="searchtoggle"/>
+                </header>
+
+                <header className="navElements_Mobile">
+                    {/* Create list of links. If link has children, create a dropdown menu. */}
+                    <GiHamburgerMenu onClick={openMobileMenu} className="mobileToggle"/>
+                    
+                    <div className="navElements_M_Content">
+                        {items.map(item => {
+                            if(item.childItems.nodes.length > 0){
+                                return(
+                                    <div className="dropdown" onClick={openDropdown} key={item.id}>
+                                        <button className="dropbtn">{item.label}</button>
+                                        <div className="dropdown-content">
+                                            {item.childItems.nodes.map(child => {
+                                                return(
+                                                    <a className="dropdown-element" href={child.url} key={child.id}>
+                                                        {child.label}
+                                                        <FaChevronRight className="chevron"/>
+                                                    </a>
+                                                )
+                                            }
+                                            )}
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            else{
+                                if(item.parentId == null){
+                                    return(
+                                        <a className="navElement" href={item.url} key={item.id}>{item.label}</a>
+                                    )
+                                }
+                            }
+                        }
+                        )}
+                    </div>
+                    
 
 
                     <FaSearch className="searchtoggle"/>

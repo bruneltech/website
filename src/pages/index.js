@@ -15,6 +15,8 @@ import Menu from "../components/Menu";
 import IndexHero from "../components/IndexHero/IndexHero";
 import RecentPosts from "../components/RecentPosts/RecentPosts";
 import FeaturedCategory from "../components/FeaturedCategory/FeaturedCategory";
+import UpcomingEvents from "../components/UpcomingEvents/UpcomingEvents";
+import Footer from "../components/Footer/Footer";
 
 // markup
 const IndexPage = () => {
@@ -46,11 +48,17 @@ const IndexPage = () => {
       <IndexHero/>
 
       {/* Upcoming Events would go here. Extension not fully ready yet. */}
-      
+      <UpcomingEvents/>
+
+
       {/* Recent Posts */}
       <RecentPosts/>
 
       <FeaturedCategory slug="society-news"/>
+
+
+      {/* Footer */}
+      <Footer/>
     </main>
   )
 }

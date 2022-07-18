@@ -1,0 +1,87 @@
+.upcomingEvtContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+
+    .upcomingEvtContent{
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        //align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
+
+        .sectionTitle{
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .upcomingEvtItems{
+            // Responsive grid funny time
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+
+            .noEvents{
+                font-size: 1.2rem;
+                font-weight: normal;
+                margin-bottom: 2rem;
+                font-family: 'Raleway', sans-serif;
+
+                margin: 0;
+            }
+
+            .upcomingEvtItem{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                a{
+                    width: 100%;
+                }
+
+                width: 335px;
+                min-height: 90px;
+                max-height: 90px;
+
+                padding: 15px;
+                transition: .25s;
+                background-color: white;
+
+                border-radius: 10px;
+
+                // On hover zoom the image in slightly, but keep it contained in the box
+                &:hover{
+                    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+                }
+
+                .upcomingEvtTitle{
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    margin-bottom: .5rem;
+                    font-family: 'Raleway', sans-serif;
+
+                }
+
+                .upcomingEvtDate{
+                    font-size: .95rem;
+                    font-weight: normal;
+                    margin-top: 0rem;
+                    font-family: 'Raleway', sans-serif;
+                }
+            }
+        }
+    }
+} 

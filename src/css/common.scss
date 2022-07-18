@@ -3,6 +3,8 @@ body{
 
     overflow-x: hidden;
 
+    line-height: 1.5;
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: rgb(235, 235, 235);
 }
@@ -22,6 +24,15 @@ a{
     }
 }
 
+ul{
+    list-style: disc;
+    padding-inline-start: 0;
+}
+
+ul, ol{
+    margin: 0 0 1.5em 3em;
+}
+
 .app{
     width: 100vw;
     height: 100%;
@@ -33,3 +44,7 @@ a{
 .button-blue{
     background-color: #32AAED;
 }
+
+
+// Everything below is essentially wordpress constants.
+

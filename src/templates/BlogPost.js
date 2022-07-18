@@ -3,6 +3,8 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 
 // Generic Imports
 import Menu from "../components/Menu";
+import Footer from "../components/Footer/Footer";
+
 
 const BlogPostTemplate = ({data}) => {
     return(
@@ -32,6 +34,7 @@ const BlogPostTemplate = ({data}) => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
         
     )

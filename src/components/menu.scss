@@ -6,23 +6,22 @@
     flex-direction: row;
 
     width: 100%;
+    height: 75px;
 
     z-index: 10;
-
+    transition: .25s;
     padding-bottom: 10px;
 
     // Background colour with blur
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
 
+    &.m_open{
+        background-color: #1750A7;
+    }
 
     .siteLogo{
         width: 270px;
-
-        @media screen and (max-width: 800px){
-            margin: 0;
-            margin-bottom: -30px;
-        }
     }
 
         
@@ -39,12 +38,6 @@
 
         margin-top: 15px;
         //padding-bottom: 20px;
-
-        @media screen and (max-width: 800px){
-            flex-direction: column;
-            width: 85%;
-            margin-top: 20px;
-        }
     }
 
     .navElements{
@@ -54,6 +47,10 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+
+        @media screen and (max-width: 1020px){
+            display: none;
+        }
 
         .dropdown{
             display: flex;
@@ -171,6 +168,153 @@
             color: #2F066B;
             background-color: #ffffff
         }
+    }
+
+
+    .navElements_Mobile{
+        display: none;
+
+        @media (max-width: 1020px){
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            .mobileToggle{
+                font-size: 36px;
+                cursor: pointer;
+            }
+
+            .searchtoggle{
+                font-size: 26px;
+                margin-left: 20px;
+                cursor: pointer;
+            }
+        }
+
+        .navElements_M_Content{
+            display: none;
+            width: 300px;
+            min-height: 300px;
+            
+            transition: .25s;
+
+            &.m_open{
+                position: absolute;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                background-color: #1750A7;
+                top: 75px;
+                right: 0;
+                
+            }
+
+            @media (max-width: 600px){
+                
+
+                width: 100%;
+                height: 100vh;
+            }
+
+            .dropdown{
+                display: flex;
+                flex-direction: column;
+
+                transition: .25s;
+    
+                .dropbtn{
+                    background: none;
+                    border: none;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 18px;
+                    font-weight: 400;
+                    font-family: 'Raleway', sans-serif;
+    
+                    width: auto;
+    
+                    padding: 15px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+    
+                    text-align: center;
+                    text-decoration: none;
+    
+                    transition: .15s;
+    
+                    &:hover{
+                        color: #2F066B;
+                        background-color: #ffffff
+                    }
+    
+                    &.open{
+                        color: #2F066B;
+                        background-color: #ffffff
+                    }
+                }
+    
+                .dropdown-content{
+                    flex-direction: column;
+                    display: none;
+    
+                    &.open{
+                        display: flex;
+    
+                        background-color: white;
+                        color: #2F066B;
+    
+                        padding-top: 20px;
+                        padding-left: 25px;
+                        padding-bottom: 20px;
+                        padding-right: 30px;
+    
+                        top: 59px;
+                    }
+    
+                    .dropdown-element{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+    
+                        font-size: 16px;
+                        font-weight: 400;
+                        font-family: 'Raleway', sans-serif;
+    
+                        width: 220px;
+    
+                        padding: 10px;
+                        padding-left: 0px;
+                        padding-right: 0;
+    
+                        border-bottom: solid 2px #C4C4C4;
+    
+                        transition: .15s;
+    
+                        // Every element but the last one has a border-bottom
+                        &:last-child{
+                            border-bottom: none;
+                        }
+    
+                        &:hover{
+                            font-weight: 600;
+                        }
+    
+                        .chevron{
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .navElement_Mobile{
+
     }
 
 
