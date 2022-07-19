@@ -11,7 +11,7 @@ const BlogPostTemplate = ({data}) => {
             <Menu />
             <div className="pageContainer">
                 <div className="pageContentMeta">
-                    <h2 className="pageTitle">{data.wpPage.title}</h2>
+                    <h2 className="pageTitle">{data.wpPost.title}</h2>
                 </div>
 
                 <div className="pageContentContainer">
@@ -19,7 +19,7 @@ const BlogPostTemplate = ({data}) => {
                         
 
                         <div className="pageContentBody"
-                            dangerouslySetInnerHTML={{__html: data.wpPage.content}}
+                            dangerouslySetInnerHTML={{__html: data.wpPost.content}}
                         />
                     </div>
                 </div>
@@ -34,7 +34,7 @@ export default BlogPostTemplate;
 
 export const query = graphql`
     query($id: String!) {
-        wpPage(id: {eq: $id}) {
+        wpPost(id: {eq: $id}) {
             title
             excerpt
             content

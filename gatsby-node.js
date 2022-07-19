@@ -66,7 +66,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     console.log("Creating a page for: " + post.node.uri);
     createPage({
       path: `${post.node.uri}`,
-      component: BlogPostTemplate,
+      component: PageTemplate,
       context: {
         id: post.node.id,
       },

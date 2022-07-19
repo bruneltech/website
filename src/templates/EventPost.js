@@ -8,6 +8,13 @@ import Footer from "../components/Footer/Footer";
 
 
 const EventPostTemplate = ({data}) => {
+    const evStart = data.wpEvent.eventDateStart;
+    const evEnd = data.wpEvent.eventDateEnd;
+
+    const addCalReminder = () => {
+
+    }
+
     return(
         <div className="app">
             <Menu />
@@ -19,17 +26,29 @@ const EventPostTemplate = ({data}) => {
                         <div className="eventTimes">
                             <p className="eventDate">
                                 <FaCalendar className="cal"/>
-                                {new Date(data.wpEvent.eventDateStart).toDateString()}
+                                {/* If the two dates are the same, then just show the start date. */}
+                                {evStart.substring(0, 10) === evEnd.substring(0, 10) ?
+                                    `${new Date(evStart.substring(0, 10)).toLocaleDateString() + " " + evStart.substring(11, 16)}
+                                    - ${evEnd.substring(11, 16)}`
+                                    
+                                :
+                                    `${new Date(evStart.substring(0, 10)).toDateString() + " " + evStart.substring(11, 16)}
+                                     - 
+                                     ${new Date(evEnd.substring(0, 10)).toDateString() + " " + evEnd.substring(11, 16)}`
+                                }
                             </p>
 
                             <p className="eventLocation">
                                 <FaLocationArrow className="locarrow"/>
                                 {data.wpEvent.eventLocation}
                             </p>
-                            <div className="times">
-                                <p className="eventTime">{data.wpEvent.eventDateStartTime}</p>
-                                <span>-</span>
-                                <p className="eventEndTime">{data.wpEvent.eventDateEndTime}</p>
+
+                            <div className="calReminder">
+                                <div onClick={addCalReminder} className="addBtn">
+                                    <a>
+                                        <button className="addBtn button-blue">Add to Calendar</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,8 +76,7 @@ export const query = graphql`
         wpEvent(id: {eq: $id}) {
             title
             eventDateStart
-            eventDateStartTime
-            eventDateEndTime
+            eventDateEnd
             eventLocation
 
             content

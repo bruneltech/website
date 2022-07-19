@@ -3,6 +3,7 @@ import {Link, useStaticQuery, graphql } from 'gatsby';
 import {StaticImage} from "gatsby-plugin-image";
 import {FaSearch, FaChevronRight, FaHamburger} from "react-icons/fa";
 import {GiHamburgerMenu} from "react-icons/gi";
+import {AiOutlineClose} from "react-icons/ai";
 
 
 // Create a component called Menu with the results from the query.
@@ -43,6 +44,9 @@ const Menu = ({ children }) => {
         }
     `);
 
+    const items = data.wpMenu.menuItems.nodes;
+    const logoUrl = data.wp.siteLogo.sourceUrl;
+
     const openDropdown = (e) => {
         const dropdown = e.target.nextSibling;
 
@@ -64,24 +68,48 @@ const Menu = ({ children }) => {
     }
     
     // track clicks
-    const trackClick = (e) => {
-        console.log("aaaa");
-    }
+    function useOutsideAlerter(ref) {
+        React.useEffect(() => {
+          /**
+           * Alert if clicked on outside of element
+           */
+          function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                const mobileMenu = document.querySelector(".navElements_M_Content");
+                const mainBar = document.querySelector(".menuContainer");
+                        
+                // If menu is open, close it
+                if (mOpen) {
+                    mobileMenu.classList.toggle("m_open");
+                    mainBar.classList.toggle("m_open");
+                    setMOpen(!mOpen);
+                }
+            }
+          }
+          // Bind the event listener
+          document.addEventListener("mousedown", handleClickOutside);
+          return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+          };
+        }, [ref]);
+      }
+      
 
     //const [isDropDownOpen, setIsDropDownOpen] = React.useState(false);
 
-    const items = data.wpMenu.menuItems.nodes;
-    
-    const logoUrl = data.wp.siteLogo.sourceUrl;
+
+    const wrapperRef = React.useRef(null);
+    useOutsideAlerter(wrapperRef);
 
     return(
         <div className="menuContainer">
             <div className="navContent">
                 <div className="hackBrunelLogo">
-                    <Link to="/">
+                    <a href="/">
                         {/*<StaticImage src="../images/sample-logo.webp" alt="HackBrunel" className="siteLogo"/>*/}
                         <img src={logoUrl} alt="HackBrunel" className="siteLogo"/>
-                    </Link>
+                    </a>
                 </div>
                 
                 <header className="navElements">
@@ -119,10 +147,12 @@ const Menu = ({ children }) => {
                     <FaSearch className="searchtoggle"/>
                 </header>
 
-                <header className="navElements_Mobile">
+                <header ref={wrapperRef} className="navElements_Mobile">
                     {/* Create list of links. If link has children, create a dropdown menu. */}
-                    <GiHamburgerMenu onClick={openMobileMenu} className="mobileToggle"/>
-                    
+                    <div className="menuoptions">
+                        {mOpen ? <AiOutlineClose className="mobileToggle" onClick={openMobileMenu}/> : <GiHamburgerMenu className="mobileToggle" onClick={openMobileMenu}/>}
+                    </div>
+
                     <div className="navElements_M_Content">
                         {items.map(item => {
                             if(item.childItems.nodes.length > 0){

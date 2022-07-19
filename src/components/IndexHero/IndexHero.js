@@ -50,11 +50,6 @@ const IndexHero = () => {
     var postCount = 0;
 
     useEffect(() => {
-        // really silly way of stopping the effect hook from erroring out when it's not on the index page.
-        // as for some reason in a few cases in the dev environment it'll still try running even though its unmounted??
-        if (window.location.pathname !== "/") {
-            return;
-        }
         if (data.allWpPost.edges.length > 0) {
             // Every 5 seconds, change to a new post. Every few posts, revert to default.
             const interval = setInterval(() => {
@@ -80,11 +75,15 @@ const IndexHero = () => {
                     postCount++;    
                 }
 
-                const buttons = document.getElementsByClassName("selector");
-                for (let i = 0; i < buttons.length; i++) {
-                    buttons[i].classList.remove("selected");
+                try{
+                    const buttons = document.getElementsByClassName("selector");
+                    for (let i = 0; i < buttons.length; i++) {
+                        buttons[i].classList.remove("selected");
+                    }
+                    buttons[postCount].classList.add("selected");
+                }catch(e){
+                    console.log("An error occured while attempting to change slide indicator. Error: " + e);
                 }
-                buttons[postCount].classList.add("selected");
             }
             , 5000);
 
@@ -92,6 +91,13 @@ const IndexHero = () => {
                 interval.refresh(); // Resets the timer to prevent any conflicts
                 setBtnOverride(false); // Turns off the override
             }
+
+
+            return() => {
+                // Clean up the interval when the component unmounts.
+                clearInterval(interval);
+            }
+            
         }
     }
     , []);

@@ -28,11 +28,9 @@
         .recentPostsItems{
             // Responsive grid funny time
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-gap: 1rem;
-            width: 100%;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+            grid-gap: 60px;
+            align-items: center;
 
             .recentPostItem{
                 display: flex;
@@ -48,7 +46,6 @@
                 overflow: hidden;
 
                 .recentPost{
-                    width: 320px;
                     height: 525px;
                     
                     overflow: hidden;

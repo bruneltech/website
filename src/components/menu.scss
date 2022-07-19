@@ -68,8 +68,8 @@
                 width: auto;
 
                 padding: 15px;
-                padding-top: 10px;
-                padding-bottom: 10px;
+                padding-top: 13px;
+                padding-bottom: 13px;
 
                 text-align: center;
                 text-decoration: none;
@@ -159,6 +159,10 @@
         padding: 15px;
         padding-top: 10px;
         padding-bottom: 10px;
+        
+        @media (max-width: 600px){
+            margin: 0;
+        }
 
         transition: .15s;
 
@@ -181,6 +185,7 @@
             justify-content: space-between;
 
             .mobileToggle{
+                margin-top: 5px;
                 font-size: 36px;
                 cursor: pointer;
             }
@@ -207,7 +212,7 @@
                 align-items: center;
                 justify-content: center;
 
-                background-color: #1750A7;
+                background-color: #214180;
                 top: 75px;
                 right: 0;
                 
