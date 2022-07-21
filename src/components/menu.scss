@@ -6,22 +6,25 @@
     flex-direction: row;
 
     width: 100%;
-    height: 75px;
+    height: 60px;
 
-    z-index: 10;
+    z-index: 500;
     transition: .25s;
     padding-bottom: 10px;
 
     // Background colour with blur
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, .75);
+    //background-color: rgba(28, 80, 167, .5);
     backdrop-filter: blur(10px);
 
     &.m_open{
         background-color: #1750A7;
+
+        height: 100%;
     }
 
     .siteLogo{
-        width: 270px;
+        width: 225px;
     }
 
         
@@ -30,11 +33,26 @@
         align-items: center;
         justify-content: space-between;
         flex-direction: row;
+
+        position: absolute;
+        top: -5px;
+        
+        transition: .25s;
+
+        &.selected{
+            // Something to go here.
+            margin-top: -50px;
+        }
+
         
         color: white;
 
         width: 85%;
         //padding-right: 50px;
+
+        @media screen and (max-width: 920px){
+            width: 95%;
+        }
 
         margin-top: 15px;
         //padding-bottom: 20px;
@@ -48,7 +66,9 @@
         flex-direction: row;
         align-items: center;
 
-        @media screen and (max-width: 1020px){
+        transition: .25s;
+
+        @media screen and (max-width: 800px){
             display: none;
         }
 
@@ -56,20 +76,22 @@
             display: flex;
             flex-direction: column;
 
+            transition: .25s;
+
             .dropbtn{
                 background: none;
                 border: none;
                 color: #fff;
                 cursor: pointer;
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 400;
                 font-family: 'Raleway', sans-serif;
 
                 width: auto;
 
                 padding: 15px;
-                padding-top: 13px;
-                padding-bottom: 13px;
+                padding-top: 8px;
+                padding-bottom: 8px;
 
                 text-align: center;
                 text-decoration: none;
@@ -90,6 +112,8 @@
             .dropdown-content{
                 flex-direction: column;
                 display: none;
+
+                transition: .25s;
 
                 &.open{
                     display: flex;
@@ -143,9 +167,9 @@
         }
 
         .searchtoggle{
-            margin-left: 25px;
+            margin-left: 15px;
 
-            font-size: 24px;
+            font-size: 20px;
         }
 
         @media screen and (max-width: 800px){
@@ -157,8 +181,8 @@
     .navElement{
 
         padding: 15px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         
         @media (max-width: 600px){
             margin: 0;
@@ -166,7 +190,7 @@
 
         transition: .15s;
 
-        font-size: 18px;
+        font-size: 16px;
         
         &:hover{
             color: #2F066B;
@@ -178,51 +202,134 @@
     .navElements_Mobile{
         display: none;
 
-        @media (max-width: 1020px){
+        @media (max-width: 800px){
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
 
             .mobileToggle{
-                margin-top: 5px;
-                font-size: 36px;
+                //margin-top: 5px;
+                font-size: 30px;
                 cursor: pointer;
+
+                transition: .25s;
             }
 
             .searchtoggle{
-                font-size: 26px;
+                margin-top: -5px;
+                font-size: 22px;
                 margin-left: 20px;
                 cursor: pointer;
             }
         }
 
+        
         .navElements_M_Content{
             display: none;
-            width: 300px;
-            min-height: 300px;
+            width: 100%;
+            height: 100%;
             
             transition: .25s;
 
             &.m_open{
-                position: absolute;
-
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
 
-                background-color: #214180;
-                top: 75px;
+                transition: .25s;
+
+                position: absolute;
+                top: 65px;
+                left: 0;
                 right: 0;
-                
+                bottom: 0;
             }
 
-            @media (max-width: 600px){
-                
-
+            .searchFieldContainer{
                 width: 100%;
-                height: 100vh;
+                height: 65px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+                transition: .25s;
+                margin-bottom: 20px;
+
+                z-index: 10;
+
+                &.selected{
+                    // Something to go here.
+                    background-color: #1750A7;
+
+                }
+
+                .cancelSearch{
+                    font-size: 20px;
+
+                    margin-left: 20px;
+
+                    display: none;
+                    transition: .25s;
+
+                    z-index: 40;
+
+                    cursor: pointer;
+
+                    &.selected{
+                        transition: .25s;
+                        display: block;
+                    }
+                }
+
+                .searchField{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    width: 80%;
+                    height: 50px;
+    
+                    background-color: #14084D;
+                    border-radius: 15px;
+    
+                    transition: .25s;
+    
+                    .icon{
+                        font-size: 18px;
+                        margin-left: 5px;
+                    }
+    
+                    .searchform{
+                        width: 100%;
+                        height: 85%;
+    
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        flex-direction: row;
+
+                        transition: .25s;
+    
+                        padding-left: 15px;
+    
+                        .search-input{
+                            width: inherit;
+                            height: inherit;
+    
+                            transition: .25s;
+
+                            background: none;
+                            border: none;
+    
+                            color: white;
+                            font-size: 18px;
+                        }
+                    }
+                }
             }
 
             .dropdown{
@@ -265,6 +372,8 @@
                 .dropdown-content{
                     flex-direction: column;
                     display: none;
+
+                    transition: .25s;
     
                     &.open{
                         display: flex;

@@ -60,47 +60,79 @@ const Menu = ({ children }) => {
         // Open mobile menu
         const mobileMenu = document.querySelector(".navElements_M_Content");
         const mainBar = document.querySelector(".menuContainer");
+        const navContainer = document.querySelector(".navContent");
 
         mobileMenu.classList.toggle("m_open");
         mainBar.classList.toggle("m_open");
+        navContainer.classList.toggle("m_open");
 
         setMOpen(!mOpen);
     }
+
+    const enableSearchKinda = () => {
+        const search = document.querySelector(".searchFieldContainer");
+        const cancelBtn = document.querySelector(".cancelSearch");
+        const navContainer = document.querySelector(".navContent");
+
+
+        // If the classes are already there, ignore it.
+        if (search.classList.contains("selected")) {
+            return;
+        }else{
+            search.classList.add("selected");
+            cancelBtn.classList.add("selected");
+            navContainer.classList.add("selected");
+        }
+    }
+
+    const retractSearch = () => {
+        console.log("removing search");
+
+        const search = document.querySelector(".searchFieldContainer");
+        const cancelBtn = document.querySelector(".cancelSearch");
+        const navContainer = document.querySelector(".navContent");
+
+
+        search.classList.remove("selected");
+        cancelBtn.classList.remove("selected");
+        navContainer.classList.remove("selected");
+    }
+
     
     // track clicks
-    function useOutsideAlerter(ref) {
-        React.useEffect(() => {
-          /**
-           * Alert if clicked on outside of element
-           */
-          function handleClickOutside(event) {
-            if (ref.current && !ref.current.contains(event.target)) {
-                const mobileMenu = document.querySelector(".navElements_M_Content");
-                const mainBar = document.querySelector(".menuContainer");
+    // function useOutsideAlerter(ref) {
+    //     React.useEffect(() => {
+    //       /**
+    //        * Alert if clicked on outside of element
+    //        */
+    //       function handleClickOutside(event) {
+    //         if (ref.current && !ref.current.contains(event.target)) {
+    //             const mobileMenu = document.querySelector(".navElements_M_Content");
+    //             const mainBar = document.querySelector(".menuContainer");
                         
-                // If menu is open, close it
-                if (mOpen) {
-                    mobileMenu.classList.toggle("m_open");
-                    mainBar.classList.toggle("m_open");
-                    setMOpen(!mOpen);
-                }
-            }
-          }
-          // Bind the event listener
-          document.addEventListener("mousedown", handleClickOutside);
-          return () => {
-            // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", handleClickOutside);
-          };
-        }, [ref]);
-      }
+    //             // If menu is open, close it
+    //             if (mOpen) {
+    //                 mobileMenu.classList.toggle("m_open");
+    //                 mainBar.classList.toggle("m_open");
+    //                 setMOpen(!mOpen);
+    //             }
+    //         }
+    //       }
+    //       // Bind the event listener
+    //       document.addEventListener("mousedown", handleClickOutside);
+    //       return () => {
+    //         // Unbind the event listener on clean up
+    //         document.removeEventListener("mousedown", handleClickOutside);
+    //       };
+    //     }, [ref]);
+    //   }
       
 
     //const [isDropDownOpen, setIsDropDownOpen] = React.useState(false);
 
 
     const wrapperRef = React.useRef(null);
-    useOutsideAlerter(wrapperRef);
+    //useOutsideAlerter(wrapperRef);
 
     return(
         <div className="menuContainer">
@@ -147,13 +179,27 @@ const Menu = ({ children }) => {
                     <FaSearch className="searchtoggle"/>
                 </header>
 
-                <header ref={wrapperRef} className="navElements_Mobile">
+                {/*<header ref={wrapperRef} className="navElements_Mobile">*/}
+                <header className="navElements_Mobile">
                     {/* Create list of links. If link has children, create a dropdown menu. */}
                     <div className="menuoptions">
                         {mOpen ? <AiOutlineClose className="mobileToggle" onClick={openMobileMenu}/> : <GiHamburgerMenu className="mobileToggle" onClick={openMobileMenu}/>}
                     </div>
 
                     <div className="navElements_M_Content">
+                        <div className="searchFieldContainer">
+                            <div  className="searchField">
+                                {/* Gatsby Search */}
+                                <FaSearch className="icon"/>
+                                <form onClick={enableSearchKinda} action="/search" method="get" className="searchform">
+                                    <input type="text" name="q" className="search-input" placeholder="Search Brunel Tech Society"/>
+                                </form>  
+                            </div>
+
+                            <p onClick={retractSearch} className="cancelSearch">Cancel</p>
+                            
+                        </div>
+
                         {items.map(item => {
                             if(item.childItems.nodes.length > 0){
                                 return(
@@ -184,9 +230,6 @@ const Menu = ({ children }) => {
                         )}
                     </div>
                     
-
-
-                    <FaSearch className="searchtoggle"/>
                 </header>
 
                 {/* <main>
