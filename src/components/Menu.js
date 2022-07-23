@@ -4,6 +4,7 @@ import {StaticImage} from "gatsby-plugin-image";
 import {FaSearch, FaChevronRight, FaHamburger} from "react-icons/fa";
 import {GiHamburgerMenu} from "react-icons/gi";
 import {AiOutlineClose} from "react-icons/ai";
+import {motion} from "framer-motion";
 
 
 // Create a component called Menu with the results from the query.
@@ -130,6 +131,9 @@ const Menu = ({ children }) => {
 
     //const [isDropDownOpen, setIsDropDownOpen] = React.useState(false);
 
+    const openDesktopSearch = () => {
+
+    }
 
     const wrapperRef = React.useRef(null);
     //useOutsideAlerter(wrapperRef);
@@ -176,7 +180,7 @@ const Menu = ({ children }) => {
                     )}
 
 
-                    <FaSearch className="searchtoggle"/>
+                    <FaSearch onClick={openDesktopSearch} className="searchtoggle"/>
                 </header>
 
                 {/*<header ref={wrapperRef} className="navElements_Mobile">*/}
@@ -235,6 +239,22 @@ const Menu = ({ children }) => {
                 {/* <main>
                     {children}
                 </main> */}
+            </div>
+
+            {/* Create a motion that when search is clicked, slides in from the right */ }
+            <div className="desktopSearch open">
+                {/* When search is clicked, run an animation */}
+                <motion.div className="searchFieldContainer" initial={{x: "-100%"}} animate={{x: 0}}>
+                    <div className="searchField">
+                        <FaSearch className='icon'/>
+                        <form action="/search" method="get" className="searchform">
+                            <input type="text" name="q" className="search-input" placeholder="Search Brunel Tech Society"/>
+                        </form>
+                    </div>
+                    <AiOutlineClose className="clicon"/>
+                </motion.div>
+
+                <div className="darkenPage open"/>
             </div>
         </div>
     )
