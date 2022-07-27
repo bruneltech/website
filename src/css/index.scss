@@ -1,0 +1,19 @@
+@import "./common.scss";
+
+
+// Component CSS imports go here.
+
+@import "../pages/404.scss";
+@import "../pages/homePage.scss";
+@import "../components/menu.scss";
+@import "../components/IndexHero/IndexHero.scss";
+@import "../components/RecentPosts/RecentPosts.scss";
+@import "../components/UpcomingEvents/UpcomingEvents.scss";
+@import "../components/Footer/footer.scss";
+
+
+// Posts
+@import "../templates/BlogPost.scss";
+@import "../templates/PagePost.scss";
+@import "../templates/CategoryArchive.scss";
+@import "../templates/EventPost.scss";

@@ -1,0 +1,532 @@
+.menuContainer{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 100%;
+    height: 60px;
+
+    z-index: 500;
+    transition: .25s;
+    padding-bottom: 10px;
+
+    // Background colour with blur
+    background-color: rgba(0, 0, 0, .75);
+    //background-color: rgba(0,0,0);
+    //background-color: rgba(28, 80, 167, .5);
+    backdrop-filter: blur(10px);
+
+    &.m_open{
+        background-color: #1750A7;
+
+        height: 100%;
+    }
+
+    &.open{
+        background-color: rgba(0,0,0);
+    }
+
+    .siteLogo{
+        width: 225px;
+    }
+
+    .desktopSearch{
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        margin-top: 10px;
+
+        width: 80%;
+        height: 80%;
+
+        max-width: 650px;
+
+        &.open{
+            display: flex;
+        }
+
+        .searchFieldContainer{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: row;
+
+            width: 100%;
+            height: 100%;
+
+            .clicon{
+                color: grey;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .searchField{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: row;
+
+                width: 100%;
+
+                .icon{
+                    color: grey;
+                    font-size: 1.2rem;
+                }
+
+                .searchform{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+
+                    margin-left: 10px;
+                    
+                    .search-input{
+                        background: none;
+                        border: none;
+
+                        width: 100%;
+                        height: 100%;
+                        font-size: 1.2rem;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .darkenPage{
+            display: none;
+
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .5);
+
+            &.open{
+                display: block;
+                position: absolute;
+            }
+        }
+    }
+
+        
+    .navContent{
+        display: flex;
+        //display: none;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+
+        position: absolute;
+        top: -5px;
+        
+        transition: .25s;
+
+        &.selected{
+            // Something to go here.
+            margin-top: -50px;
+        }
+
+        
+        color: white;
+
+        width: 85%;
+        //padding-right: 50px;
+
+        @media screen and (max-width: 920px){
+            width: 95%;
+        }
+
+        margin-top: 15px;
+        //padding-bottom: 20px;
+    }
+
+    .navElements{
+        margin-right: 30px;
+        margin-top: -5px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        transition: .25s;
+
+        @media screen and (max-width: 800px){
+            display: none;
+        }
+
+        .dropdown{
+            display: flex;
+            flex-direction: column;
+
+            transition: .25s;
+
+            .dropbtn{
+                background: none;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 400;
+                font-family: 'Raleway', sans-serif;
+
+                width: auto;
+
+                padding: 15px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+
+                text-align: center;
+                text-decoration: none;
+
+                transition: .15s;
+
+                &:hover{
+                    color: #2F066B;
+                    background-color: #ffffff
+                }
+
+                &.open{
+                    color: #2F066B;
+                    background-color: #ffffff
+                }
+            }
+
+            .dropdown-content{
+                flex-direction: column;
+                display: none;
+
+                transition: .25s;
+
+                &.open{
+                    display: flex;
+
+                    position: absolute;
+                    background-color: white;
+                    color: #2F066B;
+
+                    padding-top: 20px;
+                    padding-left: 25px;
+                    padding-bottom: 20px;
+                    padding-right: 30px;
+
+                    top: 59px;
+                }
+
+                .dropdown-element{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    font-size: 16px;
+                    font-weight: 400;
+                    font-family: 'Raleway', sans-serif;
+
+                    width: 220px;
+
+                    padding: 10px;
+                    padding-left: 0px;
+                    padding-right: 0;
+
+                    border-bottom: solid 2px #C4C4C4;
+
+                    transition: .15s;
+
+                    // Every element but the last one has a border-bottom
+                    &:last-child{
+                        border-bottom: none;
+                    }
+
+                    &:hover{
+                        font-weight: 600;
+                    }
+
+                    .chevron{
+                        float: right;
+                    }
+                }
+            }
+        }
+
+        .searchtoggle{
+            margin-left: 15px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 800px){
+            margin-right: 0;
+            margin-top: 30px;
+        }
+    }
+
+    .navElement{
+
+        padding: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        
+        @media (max-width: 600px){
+            margin: 0;
+        }
+
+        transition: .15s;
+
+        font-size: 16px;
+        
+        &:hover{
+            color: #2F066B;
+            background-color: #ffffff
+        }
+    }
+
+
+    .navElements_Mobile{
+        display: none;
+
+        @media (max-width: 800px){
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            .mobileToggle{
+                //margin-top: 5px;
+                font-size: 30px;
+                cursor: pointer;
+
+                transition: .25s;
+            }
+
+            .searchtoggle{
+                margin-top: -5px;
+                font-size: 22px;
+                margin-left: 20px;
+                cursor: pointer;
+            }
+        }
+
+        
+        .navElements_M_Content{
+            display: none;
+            width: 100%;
+            height: 100%;
+            
+            transition: .25s;
+
+            &.m_open{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+
+                transition: .25s;
+
+                position: absolute;
+                top: 65px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            .searchFieldContainer{
+                width: 100%;
+                height: 65px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+                transition: .25s;
+                margin-bottom: 20px;
+
+                z-index: 10;
+
+                &.selected{
+                    // Something to go here.
+                    background-color: #1750A7;
+
+                }
+
+                .cancelSearch{
+                    font-size: 20px;
+
+                    margin-left: 20px;
+
+                    display: none;
+                    transition: .25s;
+
+                    z-index: 40;
+
+                    cursor: pointer;
+
+                    &.selected{
+                        transition: .25s;
+                        display: block;
+                    }
+                }
+
+                .searchField{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    width: 80%;
+                    height: 50px;
+    
+                    background-color: #14084D;
+                    border-radius: 15px;
+    
+                    transition: .25s;
+    
+                    .icon{
+                        font-size: 18px;
+                        margin-left: 5px;
+                    }
+    
+                    .searchform{
+                        width: 100%;
+                        height: 85%;
+    
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        flex-direction: row;
+
+                        transition: .25s;
+    
+                        padding-left: 15px;
+    
+                        .search-input{
+                            width: inherit;
+                            height: inherit;
+    
+                            transition: .25s;
+
+                            background: none;
+                            border: none;
+    
+                            color: white;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+
+            .dropdown{
+                display: flex;
+                flex-direction: column;
+
+                transition: .25s;
+    
+                .dropbtn{
+                    background: none;
+                    border: none;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 18px;
+                    font-weight: 400;
+                    font-family: 'Raleway', sans-serif;
+    
+                    width: auto;
+    
+                    padding: 15px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+    
+                    text-align: center;
+                    text-decoration: none;
+    
+                    transition: .15s;
+    
+                    &:hover{
+                        color: #2F066B;
+                        background-color: #ffffff
+                    }
+    
+                    &.open{
+                        color: #2F066B;
+                        background-color: #ffffff
+                    }
+                }
+    
+                .dropdown-content{
+                    flex-direction: column;
+                    display: none;
+
+                    transition: .25s;
+    
+                    &.open{
+                        display: flex;
+    
+                        background-color: white;
+                        color: #2F066B;
+    
+                        padding-top: 20px;
+                        padding-left: 25px;
+                        padding-bottom: 20px;
+                        padding-right: 30px;
+    
+                        top: 59px;
+                    }
+    
+                    .dropdown-element{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+    
+                        font-size: 16px;
+                        font-weight: 400;
+                        font-family: 'Raleway', sans-serif;
+    
+                        width: 220px;
+    
+                        padding: 10px;
+                        padding-left: 0px;
+                        padding-right: 0;
+    
+                        border-bottom: solid 2px #C4C4C4;
+    
+                        transition: .15s;
+    
+                        // Every element but the last one has a border-bottom
+                        &:last-child{
+                            border-bottom: none;
+                        }
+    
+                        &:hover{
+                            font-weight: 600;
+                        }
+    
+                        .chevron{
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .navElement_Mobile{
+
+    }
+
+
+    a{
+        font-family: 'Raleway', sans-serif;
+        text-decoration: none;
+    }
+
+}
