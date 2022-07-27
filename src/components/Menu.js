@@ -180,7 +180,11 @@ const Menu = ({ children }) => {
                     )}
 
 
+                    {/*
+                    Doing search later when i can be bothered it's too much effort rn
+
                     <FaSearch onClick={openDesktopSearch} className="searchtoggle"/>
+                    */}
                 </header>
 
                 {/*<header ref={wrapperRef} className="navElements_Mobile">*/}
@@ -191,9 +195,10 @@ const Menu = ({ children }) => {
                     </div>
 
                     <div className="navElements_M_Content">
+                        
+                        {/* I'll deal with search later in the year when i can be bothered
                         <div className="searchFieldContainer">
                             <div  className="searchField">
-                                {/* Gatsby Search */}
                                 <FaSearch className="icon"/>
                                 <form onClick={enableSearchKinda} action="/search" method="get" className="searchform">
                                     <input type="text" name="q" className="search-input" placeholder="Search Brunel Tech Society"/>
@@ -202,7 +207,7 @@ const Menu = ({ children }) => {
 
                             <p onClick={retractSearch} className="cancelSearch">Cancel</p>
                             
-                        </div>
+                        </div>*/}
 
                         {items.map(item => {
                             if(item.childItems.nodes.length > 0){
@@ -241,9 +246,10 @@ const Menu = ({ children }) => {
                 </main> */}
             </div>
 
-            {/* Create a motion that when search is clicked, slides in from the right */ }
-            <div className="desktopSearch open">
-                {/* When search is clicked, run an animation */}
+            {/*
+            Doing search later when i can be bothered it's too much effort rn
+
+            <div className="desktopSearch">
                 <motion.div className="searchFieldContainer" initial={{x: "-100%"}} animate={{x: 0}}>
                     <div className="searchField">
                         <FaSearch className='icon'/>
@@ -255,7 +261,7 @@ const Menu = ({ children }) => {
                 </motion.div>
 
                 <div className="darkenPage open"/>
-            </div>
+            </div>*/}
         </div>
     )
 }
