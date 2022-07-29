@@ -43,7 +43,12 @@ const RecentPosts = () => {
                                         transition={{ duration: 0.5 }}
                                         className="recentPost"
                                     >
-                                        <div className="recentPostImage" style={{backgroundImage: `url(${post.featuredImage.node.sourceUrl})`}}/>
+                                        {/*<div className="recentPostImage" style={{backgroundImage: `url(${post.featuredImage.node.sourceUrl})`}}/>*/}
+                                        <div className="recentPostImage">
+                                            <img src={post.featuredImage.node.sourceUrl} alt={post.title}/>
+                                        </div>
+
+                                        <div className="colourstrip"/>
 
                                         <div className="recentPostMeta">
                                             <h4 className="recentPostCat">{post.categories.nodes[0].name}</h4>

@@ -2,6 +2,7 @@ import * as React from "react"
 import {StaticImage} from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
 import {motion} from "framer-motion";
+import {GatsbySeo} from "gatsby-plugin-next-seo";
 
 
 
@@ -40,8 +41,25 @@ const IndexPage = () => {
         <link rel="canonical" href="https://bruneltech.net" />
 
         <meta name="description" content="The Tech Community & BCS Student Chapter at Brunel University London" />
-        <meta name="theme-color" content="#41268F" />
-        </Helmet>
+      </Helmet>
+
+      <GatsbySeo
+        title="Brunel Tech Society"
+        description="The Tech Community & BCS Student Chapter at Brunel University London"
+        canonical="https://bruneltech.net"
+        openGraph={{
+          type: "website",
+          locale: "en_GB",
+          url: "https://bruneltech.net",
+          title: "Brunel Tech Society",
+          description: "The Tech Community & BCS Student Chapter at Brunel University London",
+        }}
+        twitter={{
+          handle: "@bruneltech",
+          cardType: "summary_large_image",
+        }}
+
+      />
         
       <Menu/>
 
