@@ -127,7 +127,7 @@
         flex-direction: row;
 
         position: absolute;
-        top: -5px;
+        //top: -5px;
         
         transition: .25s;
 
@@ -191,12 +191,12 @@
                 transition: .15s;
 
                 &:hover{
-                    color: #2F066B;
+                    color: #1750A7;
                     background-color: #ffffff
                 }
 
                 &.open{
-                    color: #2F066B;
+                    color: #1750A7;
                     background-color: #ffffff
                 }
             }
@@ -212,14 +212,14 @@
 
                     position: absolute;
                     background-color: white;
-                    color: #2F066B;
+                    color: #1750A7;
 
                     padding-top: 20px;
                     padding-left: 25px;
                     padding-bottom: 20px;
                     padding-right: 30px;
 
-                    top: 59px;
+                    top: 38px;
                 }
 
                 .dropdown-element{
@@ -285,7 +285,7 @@
         font-size: 16px;
         
         &:hover{
-            color: #2F066B;
+            color: #1750A7;
             background-color: #ffffff
         }
     }
@@ -451,12 +451,12 @@
                     transition: .15s;
     
                     &:hover{
-                        color: #2F066B;
+                        color: #1750A7;
                         background-color: #ffffff
                     }
     
                     &.open{
-                        color: #2F066B;
+                        color: #1750A7;
                         background-color: #ffffff
                     }
                 }
@@ -471,7 +471,7 @@
                         display: flex;
     
                         background-color: white;
-                        color: #2F066B;
+                        color: #1750A7;
     
                         padding-top: 20px;
                         padding-left: 25px;

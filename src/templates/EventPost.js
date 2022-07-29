@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { FaCalendar, FaLocationArrow } from "react-icons/fa";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 
 // Generic Imports
 import Menu from "../components/Menu";
@@ -17,8 +18,24 @@ const EventPostTemplate = ({data}) => {
 
     return(
         <div className="app">
+            <GatsbySeo
+                title={data.wpEvent.title}
+                description={data.wpEvent.excerpt}
+                canonical={data.wpEvent.uri}
+                openGraph={{
+                    title: data.wpEvent.title,
+                    description: data.wpEvent.excerpt,
+                    url: data.wpEvent.uri,
+                    type: "article"
+                }}
+                twitter={{
+                    handle: "@bruneltech",
+                    cardType: "summary_large_image"
+                }}
+            />
+            
             <Menu />
-            <div className="postContainer">
+            <div className="eventContainer">
                 <div className="eventMeta">
                     <div className="eventImg" style={{backgroundImage: `url(${data.wpEvent.featuredImage.node.localFile.url}})`}}/>
                     <div className="eventMetaContent">
@@ -54,9 +71,9 @@ const EventPostTemplate = ({data}) => {
                     </div>
                 </div>
 
-                <div className="postContentContainer">
-                    <div className="postContent">
-                        <div className="postContentBody"
+                <div className="eventContentContainer">
+                    <div className="eventContent">
+                        <div className="eventContentBody"
                             dangerouslySetInnerHTML={{__html: data.wpEvent.content}}
                         />
                     </div>

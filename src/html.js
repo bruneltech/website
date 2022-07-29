@@ -12,6 +12,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link rel="stylesheet" href="https://use.typekit.net/mvt0ulu.css"/>
+        <meta name="theme-color" content="#1750A7" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
