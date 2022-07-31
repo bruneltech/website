@@ -46,7 +46,24 @@
                 align-items: center;
         
                 width: 100%;
-        
+
+                .postCategories{
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    .postCategory{
+                        padding: 10px;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        background-color: #000;
+                        color: white;
+                    }
+                }
+
                 .postTitle{
                     font-family: 'Raleway', sans-serif;
                     font-size: 46px;
@@ -58,6 +75,34 @@
                         font-size: 30px;
                     }
         
+                }
+
+                .postAuthor{
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    margin-top: -50px;
+
+                    p{
+                        font-family: 'Raleway', sans-serif;
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: gray;
+
+                        margin-right: 20px;
+                    }
+
+                    a, span{
+                        font-family: 'Raleway', sans-serif;
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: black;
+                        text-decoration: none;
+                    }
                 }
             }
 

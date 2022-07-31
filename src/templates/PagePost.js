@@ -10,7 +10,7 @@ const PagePostTemplate = ({data}) => {
     return(
         <div className="app">
             <GatsbySeo
-                title={data.wpPage.title}
+                title={data.wpPage.title + " - Brunel Tech Society"}
                 description={data.wpPage.excerpt}
                 canonical={data.wpPage.uri}
                 openGraph={{
