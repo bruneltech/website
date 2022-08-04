@@ -12,6 +12,10 @@ Shared hosting providers are typically much less than this however you will be s
 ## Deployment
 > TODO: deal with this later
 
+## Typesense Deployment
+> TODO: Deal with this later
+
+
 ## Configuring the rebuild webhook
 As Gatsby is primarily SSR driven, the website needs to be "rebuilt" when something changes (like a new post for example). While you could fire up a terminal and run ``npm gatsby build`` every time you made a change but this would be incredibly annoying very quickly. The hook takes away this pain and does it for you whenever a change is made. (Takes about 1-2 minutes)
 
