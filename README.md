@@ -1,6 +1,6 @@
 # Techsoc Website
 
-The website for the society.
+The (WIP) website for the society.
 Gatsby.js is used for the frontend and Wordpress is used for the backend.
 
 How future committees approach deployment of this website and other society-affiliated ones is up to them. Be warned, dedicated infra isn't cheap but we're
