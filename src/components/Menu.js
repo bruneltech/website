@@ -2,19 +2,18 @@ import * as React from 'react';
 import {Link, useStaticQuery, graphql } from 'gatsby';
 import {StaticImage} from "gatsby-plugin-image";
 import {FaSearch, FaChevronRight, FaHamburger} from "react-icons/fa";
-import {GiHamburgerMenu} from "react-icons/gi";
+import {GiHamburgerMenu, GiTripleYin} from "react-icons/gi";
 import {AiOutlineClose} from "react-icons/ai";
 import {motion} from "framer-motion";
 
+import Desktop from "./SearchInterfaces/Desktop";
 
-// Create a component called Menu with the results from the query.
 
-/* GraphQL query to get wordpress menu named "nav" */
+// Typesense server will still query pages and posts despite search currently not being implemented.
+// Saves time for when it does get implemented later down the line. (Search, especially styling it is hard ok)
 
-// SSR-Rendered element.
-
-//dGVybTo3 -- Prod
-//dGVybToxNg== -- Development
+//dGVybToy -- Prod
+//dGVybToxNTk= -- Development
 
 const Menu = ({ children }) => {
     const data = useStaticQuery(graphql`
@@ -51,8 +50,14 @@ const Menu = ({ children }) => {
     const openDropdown = (e) => {
         const dropdown = e.target.nextSibling;
 
-        e.target.classList.toggle("open");
-        dropdown.classList.toggle("open");
+        if(dropdown == null || e.target == null){
+            return;
+        }else{
+            e.target.classList.toggle("open");
+            dropdown.classList.toggle("open");
+        }
+
+        return;
     }
 
     const [mOpen, setMOpen] = React.useState(false);
@@ -68,6 +73,8 @@ const Menu = ({ children }) => {
         navContainer.classList.toggle("m_open");
 
         setMOpen(!mOpen);
+
+        return;
     }
 
     const enableSearchKinda = () => {
@@ -84,6 +91,8 @@ const Menu = ({ children }) => {
             cancelBtn.classList.add("selected");
             navContainer.classList.add("selected");
         }
+
+        return;
     }
 
     const retractSearch = () => {
@@ -97,37 +106,9 @@ const Menu = ({ children }) => {
         search.classList.remove("selected");
         cancelBtn.classList.remove("selected");
         navContainer.classList.remove("selected");
-    }
 
-    
-    // track clicks
-    // function useOutsideAlerter(ref) {
-    //     React.useEffect(() => {
-    //       /**
-    //        * Alert if clicked on outside of element
-    //        */
-    //       function handleClickOutside(event) {
-    //         if (ref.current && !ref.current.contains(event.target)) {
-    //             const mobileMenu = document.querySelector(".navElements_M_Content");
-    //             const mainBar = document.querySelector(".menuContainer");
-                        
-    //             // If menu is open, close it
-    //             if (mOpen) {
-    //                 mobileMenu.classList.toggle("m_open");
-    //                 mainBar.classList.toggle("m_open");
-    //                 setMOpen(!mOpen);
-    //             }
-    //         }
-    //       }
-    //       // Bind the event listener
-    //       document.addEventListener("mousedown", handleClickOutside);
-    //       return () => {
-    //         // Unbind the event listener on clean up
-    //         document.removeEventListener("mousedown", handleClickOutside);
-    //       };
-    //     }, [ref]);
-    //   }
-      
+        return;
+    }
 
     //const [isDropDownOpen, setIsDropDownOpen] = React.useState(false);
 
@@ -196,18 +177,13 @@ const Menu = ({ children }) => {
 
                     <div className="navElements_M_Content">
                         
-                        {/* I'll deal with search later in the year when i can be bothered
-                        <div className="searchFieldContainer">
-                            <div  className="searchField">
-                                <FaSearch className="icon"/>
-                                <form onClick={enableSearchKinda} action="/search" method="get" className="searchform">
-                                    <input type="text" name="q" className="search-input" placeholder="Search Brunel Tech Society"/>
-                                </form>  
-                            </div>
-
+                        {/* Search is for later when I can get round to implementing properly. */}
+                        {/* <div className="searchFieldContainer">
+                            <Desktop/>
+                            
                             <p onClick={retractSearch} className="cancelSearch">Cancel</p>
                             
-                        </div>*/}
+                        </div> */}
 
                         {items.map(item => {
                             if(item.childItems.nodes.length > 0){

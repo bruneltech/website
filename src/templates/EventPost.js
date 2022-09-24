@@ -3,6 +3,9 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import { FaCalendar, FaLocationArrow } from "react-icons/fa";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 
+import ical from "ical-generator";
+
+
 // Generic Imports
 import Menu from "../components/Menu";
 import Footer from "../components/Footer/Footer";
@@ -13,13 +16,28 @@ const EventPostTemplate = ({data}) => {
     const evEnd = data.wpEvent.eventDateEnd;
 
     const addCalReminder = () => {
+        // Generate a new calendar
+        const cal = ical({name: data.wpEvent.title});
+
+        // Add a new event
+        let evt = cal.createEvent({
+            start: evStart,
+            end: evEnd,
+            summary: data.wpEvent.title,
+            description: data.wpEvent.excerpt,
+            location: data.wpEvent.location,
+            url: data.wpEvent.uri
+        });
+
+        // Create the ics file
+        
 
     }
 
     return(
         <div className="app">
             <GatsbySeo
-                title={data.wpEvent.title}
+                title={data.wpEvent.title + " - Brunel Tech Society"}
                 description={data.wpEvent.excerpt}
                 canonical={data.wpEvent.uri}
                 openGraph={{
@@ -33,13 +51,16 @@ const EventPostTemplate = ({data}) => {
                     cardType: "summary_large_image"
                 }}
             />
+
+            <p style={{display: 'none'}} data-typesense-field="postKind">Event</p>
+
             
             <Menu />
             <div className="eventContainer">
                 <div className="eventMeta">
                     <div className="eventImg" style={{backgroundImage: `url(${data.wpEvent.featuredImage.node.localFile.url}})`}}/>
                     <div className="eventMetaContent">
-                        <h1 className="eventTitle">{data.wpEvent.title}</h1>
+                        <h1 data-typesense-field="postTitle" className="eventTitle">{data.wpEvent.title}</h1>
                         <div className="eventTimes">
                             <p className="eventDate">
                                 <FaCalendar className="cal"/>

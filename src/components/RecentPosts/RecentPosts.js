@@ -27,9 +27,16 @@ const RecentPosts = () => {
       
 
     return(
-        <div className="recentPostsContainer">
+        <div className="recentPostsContainer" id="recent-posts-section">
             <div className="recentPostsContent">
-                <h2 className="sectionTitle">Recent Posts</h2>
+                <div className="sectionMeta">
+                    <div className="sectCont">
+                        <h2 className="sectionTitle">Recent Posts</h2>
+                        {/* <Link to={data.allWpCategory.nodes[0].uri} className="sectionLink"><FaChevronRight className="sectionicn"/></Link> */}
+                    </div>
+                    <div className="divider"/>
+                </div>
+
 
                 <div className="recentPostsItems">
                     {data.allWpPost.nodes.map((post, index) => {

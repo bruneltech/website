@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
 
             <div className="footer-extra">
-                <p className="brought">This website is <a className="link" href='https://github.com/bruneltech/website'>Open Source</a></p>
+                <p className="brought">This website is a work in progress, but is also <a className="link" href='https://github.com/bruneltech/website'>Open Source</a></p>
             </div>
         </footer>
     )

@@ -18,6 +18,10 @@
     //background-color: rgba(28, 80, 167, .5);
     backdrop-filter: blur(10px);
 
+    a{
+        color: white;
+    }
+
     &.m_open{
         background-color: #1750A7;
 
@@ -127,6 +131,7 @@
         flex-direction: row;
 
         position: absolute;
+        top: -5px;
         //top: -5px;
         
         transition: .25s;
@@ -134,6 +139,11 @@
         &.selected{
             // Something to go here.
             margin-top: -50px;
+        }
+
+        &.m_open{
+            position: absolute;
+            top: -5px;
         }
 
         
@@ -182,7 +192,7 @@
                 width: auto;
 
                 padding: 15px;
-                padding-top: 8px;
+                padding-top: 7px;
                 padding-bottom: 8px;
 
                 text-align: center;
@@ -237,6 +247,8 @@
                     padding: 10px;
                     padding-left: 0px;
                     padding-right: 0;
+
+                    color: #1750A7;
 
                     border-bottom: solid 2px #C4C4C4;
 
@@ -477,6 +489,8 @@
                         padding-left: 25px;
                         padding-bottom: 20px;
                         padding-right: 30px;
+
+                        transition: .25s;
     
                         top: 59px;
                     }
@@ -496,10 +510,16 @@
                         padding: 10px;
                         padding-left: 0px;
                         padding-right: 0;
-    
+                        
+                        color: #1750A7;
+
                         border-bottom: solid 2px #C4C4C4;
     
                         transition: .15s;
+
+                        &:first-child{
+                            padding-top: 0;
+                        }
     
                         // Every element but the last one has a border-bottom
                         &:last-child{

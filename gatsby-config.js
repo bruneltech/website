@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Brunel Tech Society`,
-    //siteUrl: `https://pyxl.blog/`
+    //siteUrl: `http://techsoc-test.local/`
     siteUrl: `https://bruneltech.net/`
   },
   plugins: [
@@ -13,7 +13,7 @@ module.exports = {
     {
     resolve: 'gatsby-source-wordpress',
     options: {
-      //"url": "https://pyxl.blog/graphql"
+      //"url": "http://techsoc-test.local/graphql",
       "url": "https://bruneltech.net/graphql",
       html: {
         useGatsbyImage: true
@@ -38,5 +38,55 @@ module.exports = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }]
+  },{
+    resolve: 'gatsby-plugin-typesense',
+    options: {
+      rootDir: `${__dirname}/public`,
+      //exclude: `^(?!.*/20).*$`, //this currently causes build to fail, have submitted a PR to fix this.
+      collectionSchema: {
+        name: "posts_v1",
+        fields: [
+          {
+            name: "postTitle",
+            type: "string"
+          },
+          {
+            name: "postCategory",
+            type: "string",
+            optional: true
+          },
+          {
+            name: "postKind",
+            type: "string",
+          },
+          // {
+          //   name: "tags",
+          //   type: "string[]"
+          // },
+          {
+            name: "page_path",
+            type: "string"
+          },
+          {
+            name: "page_priority_score",
+            type: "int32",
+          },
+        ],
+        default_sorting_field: "page_priority_score",
+      },
+      server: {
+        //apiKey: "kwDD7JzNzqEpi4afZ",
+        apiKey: "xyz",
+        nodes: [
+          {
+            //host: "165.227.231.194",
+            host: '127.0.0.1',
+            port: "8108",
+            protocol: "http",
+          },
+        ],
+      },
+    }
+  },
+],
 };
