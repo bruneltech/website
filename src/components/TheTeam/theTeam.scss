@@ -1,0 +1,33 @@
+.theTeam{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .people{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .theTeam-Content {
+        // Responsive grid layout
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 0fr));
+        grid-gap: 10px;
+
+        // Align content to center    
+        justify-content: center;
+
+        
+        
+    }
+        
+}

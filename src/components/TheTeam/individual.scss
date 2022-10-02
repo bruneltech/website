@@ -1,0 +1,49 @@
+.person{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    max-width: 200px;
+
+    .person-image{
+        width: 170px;
+        border-radius: 100%;
+
+        // Make sure the image fills the container    
+    }
+
+    .person-info{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        
+
+        .person-name{
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+
+            margin-bottom: 10px;
+
+            margin-top: 15px;
+        }
+
+        .person-role{
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            font-weight: normal;
+            color: black;
+
+            margin-top: -10px;
+        }
+
+        .person-linkedin{
+            font-size: 24px;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+    }
+}

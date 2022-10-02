@@ -37,7 +37,7 @@ const IndexHero = () => {
         }
     `);
 
-    const [buttonUrl, setButtonUrl] = React.useState("https://brunelstudents.com/societies/tech/");
+    const [buttonUrl, setButtonUrl] = React.useState("https://brunelstudents.com/organisation/7158/");
     const [buttonText, setButtonText] = React.useState("Join Us");
     const [heroTitle, setHeroTitle] = React.useState("The Tech Community & BCS Student Chapter @ Brunel University");
     const [heroBackground, setHeroBackground] = React.useState(DefaultHeroImg);
@@ -56,7 +56,7 @@ const IndexHero = () => {
                 if(postCount > data.allWpPost.edges.length - 1){
                     console.log("resetting to default")
                     postCount = 0;
-                    setButtonUrl("https://brunelstudents.com/societies/tech/");
+                    setButtonUrl("https://brunelstudents.com/organisation/7158/");
                     setButtonText("Join Us");
                     setHeroTitle("The Tech Community & BCS Student Chapter @ Brunel University");
                     setHeroBackground(DefaultHeroImg);
@@ -141,7 +141,7 @@ const IndexHero = () => {
 
         // If the default image is used, don't darken background image.
 
-        <div className="heroContainer" style={{backgroundImage: `url(${heroBackground})`}}>
+        <div className="heroContainer" style={{backgroundImage: `url(${heroBackground})`, transition: "background-image 0.2s ease-in-out"}}>
 
             <div className="heroContent">
                 {/* If ShowFeaturedIndicator is true, display the featured indicator */}

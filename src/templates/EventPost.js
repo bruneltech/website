@@ -10,6 +10,8 @@ import ical from "ical-generator";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer/Footer";
 
+import DefaultFeaturedImage from "../images/hero-front.png";
+
 
 const EventPostTemplate = ({data}) => {
     const evStart = data.wpEvent.eventDateStart;
@@ -58,7 +60,7 @@ const EventPostTemplate = ({data}) => {
             <Menu />
             <div className="eventContainer">
                 <div className="eventMeta">
-                    <div className="eventImg" style={{backgroundImage: `url(${data.wpEvent.featuredImage.node.localFile.url}})`}}/>
+                    <div className="eventImg" style={{backgroundImage: `url(${data.wpEvent.featuredImage == null ? {DefaultFeaturedImage} : data.wpEvent.featuredImage.node.localFile.url})`}}/>
                     <div className="eventMetaContent">
                         <h1 data-typesense-field="postTitle" className="eventTitle">{data.wpEvent.title}</h1>
                         <div className="eventTimes">
@@ -81,13 +83,13 @@ const EventPostTemplate = ({data}) => {
                                 {data.wpEvent.eventLocation}
                             </p>
 
-                            <div className="calReminder">
+                            {/* <div className="calReminder"> -- Coming later.
                                 <div onClick={addCalReminder} className="addBtn">
                                     <a>
                                         <button className="addBtn button-blue">Add to Calendar</button>
                                     </a>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

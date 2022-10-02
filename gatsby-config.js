@@ -14,7 +14,7 @@ module.exports = {
     resolve: 'gatsby-source-wordpress',
     options: {
       //"url": "http://techsoc-test.local/graphql",
-      "url": "https://bruneltech.net/graphql",
+      "url": "https://wp.bruneltech.net/graphql",
       html: {
         useGatsbyImage: true
       }

@@ -18,6 +18,7 @@ import RecentPosts from "../components/RecentPosts/RecentPosts";
 import FeaturedCategory from "../components/FeaturedCategory/FeaturedCategory";
 import UpcomingEvents from "../components/UpcomingEvents/UpcomingEvents";
 import Footer from "../components/Footer/Footer";
+import TheTeam from "../components/TheTeam/TheTeam";
 
 // markup
 const IndexPage = () => {
@@ -84,11 +85,11 @@ const IndexPage = () => {
             <div className="divider" />
           </div>
 
-          <p><a href="/previous-committees">View Previous Committees</a></p>
+          <p className="previousMembers"><a href="/previous-committees">View Previous Committees</a></p>
 
 
           <div className="commiteeMembers">
-            {/*<CommiteeMember name={"Name"} role={"Role"} image={"image"} desc={""} contactFor={""} email={""}/>*/}
+            <TheTeam/>
           </div>
         </div>
       </div>

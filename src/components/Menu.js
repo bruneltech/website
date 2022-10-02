@@ -12,13 +12,13 @@ import Desktop from "./SearchInterfaces/Desktop";
 // Typesense server will still query pages and posts despite search currently not being implemented.
 // Saves time for when it does get implemented later down the line. (Search, especially styling it is hard ok)
 
-//dGVybToy -- Prod
+//dGVybToyNw== -- Prod
 //dGVybToxNTk= -- Development
 
 const Menu = ({ children }) => {
     const data = useStaticQuery(graphql`
         query {
-            wpMenu(id: {eq: "dGVybToy"}) {
+            wpMenu(id: {eq: "dGVybToyNw=="}) {
                 menuItems {
                     nodes {
                       label

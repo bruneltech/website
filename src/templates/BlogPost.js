@@ -7,6 +7,8 @@ import Footer from "../components/Footer/Footer";
 
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 
+import DefaultFeaturedImage from "../images/hero-front.png";
+
 const BlogPostTemplate = ({ data }) => {
     return (
         <div className="app">
@@ -20,10 +22,13 @@ const BlogPostTemplate = ({ data }) => {
                     url: data.wpPost.uri,
                     type: "article",
 
-                    // Featured Image if there is one
+                    // Featured Image if there is one. If there isn't then use the default image.
+
                     images: [
                         {
-                            url: data.wpPost.featuredImage.node.localFile.url,
+                            url: data.wpPost.featuredImage
+                                ? data.wpPost.featuredImage.node.sourceUrl
+                                : DefaultFeaturedImage,
                             width: 1200,
                             height: 630,
                             alt: data.wpPost.title
@@ -40,7 +45,8 @@ const BlogPostTemplate = ({ data }) => {
 
             <Menu />
             <div className="postContainer">
-                <div className="featuredImg" style={{ backgroundImage: `url(${data.wpPost.featuredImage.node.localFile.url}})` }} />
+                {/* If there's no featured image, change the backgroundImage to the default image */}
+                <div className="featuredImg" style={{backgroundImage: `url(${data.wpPost.featuredImage == null ? {DefaultFeaturedImage} : data.wpPost.featuredImage.node.localFile.url})`}}/>
 
                 <div className="postContentContainer">
                     <div className="postContent">

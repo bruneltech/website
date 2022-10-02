@@ -30,7 +30,7 @@ const Footer = () => {
 
                     
                     <div className="unionLogo">
-                        <a href="https://brunelstudents.com/societies/tech">
+                        <a href="https://brunelstudents.com/organisation/7158/">
                             <img src={EventLogo} alt="Union of Brunel Students" />
                         </a>
                     </div>

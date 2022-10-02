@@ -1,0 +1,42 @@
+version: '1.0'
+
+services:
+  typesense:
+      image: typesense/typesense:0.21.0
+      entrypoint: sh -c "/opt/typesense-server --data-dir /data --api-key=${TYPESENSE_API_KEY} --enable-cors"
+      ports:
+        - "8108:8108"
+      volumes:
+        - typesense-data:/data
+
+  gatsby:
+    build:
+      context: .
+      dockerfile: dockerfile
+    working_dir: /app
+
+    ports:
+      #- ${FRONTEND_INTERNAL_PORT}:80
+      - "${BT_INTERNAL_PORT}:80"
+
+    env_file:
+      - .env
+    
+    command: "./entrypoint.sh"
+    #entrypoint: sh -c "gatsby develop -H 0.0.0.0 -p ${BT_INTERNAL_PORT}"
+
+    volumes:
+      - .:/app
+      - /app/node_modules/
+
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #     - 80:80
+  #   volumes:
+  #     - ./nginx/default.conf:/etc/nginx/conf.d
+  #     - ./public:/usr/share/nginx/html
+
+volumes:
+  typesense-data:
+    driver: local
