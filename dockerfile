@@ -9,8 +9,8 @@ RUN yarn install
 FROM nginx:latest
 WORKDIR /usr/share/nginx/html
 
-##RUN rm -rf ./*
-##COPY --from=builder /app/public .
+RUN rm -rf ./*
+COPY --from=builder /app/public .
 
 FROM node:16
 RUN npm install --global gatsby-cli && gatsby telemetry --disable && mkdir /save
