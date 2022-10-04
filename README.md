@@ -8,12 +8,19 @@ getting away with putting society stuff on a ~~$20~~ $24 DigitalOcean instance (
 
 Shared hosting providers are typically much less than this however you will be sacrificing some control, flexibility (and likely performance) over a VPS solution. I haven't used a shared hosting provider in years however, so i'm not sure what the situation is like with react-based sites and them.
 
+## Setting up for Development
+1. Clone the repository, and install all packages with ``npm i``
+
+2. Open `gatsby-config.js` and confirm that the `siteUrl` under `siteMetadata` points to ``https://bruneltech.net``, and that `url` under options in `gatsby-source-wordpress` points to ``https://wp.bruneltech.net/graphql``. If you're using this repository as a template for your own wordpress headless instance, you'll need to change these URLs to your own.
+
+3. Run ``npm run develop`` in your terminal and wait for it to output ``Waiting for wordpress changes..``. You are now able to make changes to the WP backend or your frontend and have it update in real time (this will not be the case in production).
+
 
 ## Deployment
 > TODO: deal with this later
 
 ## Typesense Deployment
-> TODO: Deal with this later
+> TODO: Deal with this later (If done through docker this'll likely be included in the compose file and not needed).
 
 
 ## Configuring the rebuild webhook
