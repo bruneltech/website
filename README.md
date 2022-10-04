@@ -15,6 +15,9 @@ Shared hosting providers are typically much less than this however you will be s
 
 3. Run ``npm run develop`` in your terminal and wait for it to output ``Waiting for wordpress changes..``. You are now able to make changes to the WP backend or your frontend and have it update in real time (this will not be the case in production).
 
+### Running Tests
+There are currently no unit tests for this repository.
+
 
 ## Deployment
 > TODO: deal with this later
