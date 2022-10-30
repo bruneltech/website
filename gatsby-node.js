@@ -24,6 +24,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const PageTemplate = path.resolve("./src/templates/PagePost.js")
   const CategoryArchiveTemplate = path.resolve("./src/templates/CategoryArchive.js")
   const EventPostTemplate = path.resolve("./src/templates/EventPost.js")
+  // const ProjectPostTemplate = path.resolve("./src/templates/ProjectPost.js") // For when the project type in the WP plugin starts to behave
 
   // TODO TOMMOROW: Add allWpEvent queries.
 
@@ -64,6 +65,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
+      
     }
   `)
 
@@ -119,4 +121,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   });
+  
+  // For when the project post type in the WP plugin starts to behave
+  //const Projects = result.data.allWpProject.edges
+  //Projects.forEach(project => {
+  //  console.log("Creating a project page for: " + project.node.uri);
+  //  createPage({
+  //    path: `${project.node.uri}`,
+  //    component: ProjectPostTemplate,
+  //    context: {
+  //      id: project.node.id,
+  //    },
+  //  });
 }
