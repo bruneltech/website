@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@babel/runtime": "^7.18.9",
     "@googlemaps/markerclustererplus": "^1.2.10",
     "@googlemaps/react-wrapper": "^1.1.32",
     "@mdx-js/mdx": "^1.6.22",
@@ -31,6 +32,7 @@
     "gatsby-plugin-sass": "^5.13.0",
     "gatsby-plugin-sharp": "^4.13.0",
     "gatsby-plugin-sitemap": "^5.13.0",
+    "gatsby-plugin-typesense": "^0.3.0",
     "gatsby-source-filesystem": "^4.13.0",
     "gatsby-source-wordpress": "^6.13.0",
     "gatsby-transformer-sharp": "^4.13.0",
@@ -42,6 +44,8 @@
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^1.3.0",
     "react-icons": "^4.3.1",
-    "sass": "^1.51.0"
+    "react-instantsearch-dom": "^6.30.3",
+    "sass": "^1.51.0",
+    "typesense-instantsearch-adapter": "^2.4.1"
   }
 }

@@ -17,9 +17,16 @@ const UpcomingEvents = (props) => {
       
 
     return(
-        <div className="upcomingEvtContainer">
+        <div className="upcomingEvtContainer" id="events-section">
             <div className="upcomingEvtContent">
-                <h2 className="sectionTitle">Upcoming Events</h2>
+            <div className="sectionMeta">
+                    <div className="sectCont">
+                        <h2 className="sectionTitle">Upcoming Events</h2>
+                        {/* <Link to={data.allWpCategory.nodes[0].uri} className="sectionLink"><FaChevronRight className="sectionicn"/></Link> */}
+                    </div>
+                    <div className="divider"/>
+                </div>
+
 
                 <div className="upcomingEvtItems">
                     {/* If theres no events, display a message */}

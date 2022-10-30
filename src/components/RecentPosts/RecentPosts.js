@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { motion } from "framer-motion";
 
+import DefaultFeaturedImg from "../../images/hero-front.png";
+
 const RecentPosts = () => {
     const data = useStaticQuery(graphql`
         query MyQuery {
@@ -27,9 +29,16 @@ const RecentPosts = () => {
       
 
     return(
-        <div className="recentPostsContainer">
+        <div className="recentPostsContainer" id="recent-posts-section">
             <div className="recentPostsContent">
-                <h2 className="sectionTitle">Recent Posts</h2>
+                <div className="sectionMeta">
+                    <div className="sectCont">
+                        <h2 className="sectionTitle">Recent Posts</h2>
+                        {/* <Link to={data.allWpCategory.nodes[0].uri} className="sectionLink"><FaChevronRight className="sectionicn"/></Link> */}
+                    </div>
+                    <div className="divider"/>
+                </div>
+
 
                 <div className="recentPostsItems">
                     {data.allWpPost.nodes.map((post, index) => {
@@ -45,7 +54,8 @@ const RecentPosts = () => {
                                     >
                                         {/*<div className="recentPostImage" style={{backgroundImage: `url(${post.featuredImage.node.sourceUrl})`}}/>*/}
                                         <div className="recentPostImage">
-                                            <img src={post.featuredImage.node.sourceUrl} alt={post.title}/>
+                                            {/* IF featuredImage is null, then use the default image */}
+                                            {post.featuredImage == null ? <img src={DefaultFeaturedImg} alt="Brunel Tech Society Logo"/> : <img src={post.featuredImage.node.sourceUrl} alt={post.title}/>}
                                         </div>
 
                                         <div className="colourstrip"/>

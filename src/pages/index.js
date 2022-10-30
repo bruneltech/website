@@ -18,6 +18,7 @@ import RecentPosts from "../components/RecentPosts/RecentPosts";
 import FeaturedCategory from "../components/FeaturedCategory/FeaturedCategory";
 import UpcomingEvents from "../components/UpcomingEvents/UpcomingEvents";
 import Footer from "../components/Footer/Footer";
+import TheTeam from "../components/TheTeam/TheTeam";
 
 // markup
 const IndexPage = () => {
@@ -63,16 +64,35 @@ const IndexPage = () => {
         
       <Menu/>
 
-      <IndexHero/>
+      <IndexHero id="main"/>
 
       {/* Upcoming Events would go here. Extension not fully ready yet. */}
-      <UpcomingEvents/>
+      <UpcomingEvents />
 
 
       {/* Recent Posts */}
       <RecentPosts/>
 
-      <FeaturedCategory slug="society-news"/>
+      {/*<FeaturedCategory id="society-news-section" slug="society-news"/>*/}
+
+      <div className="committee-section">
+        <div className="commiteeSectionContent">
+          <div className="sectionMeta">
+            <div className="sectCont">
+              <h2 className="sectionTitle">The 22/23 Commitee</h2>
+              {/* <Link to={data.allWpCategory.nodes[0].uri} className="sectionLink"><FaChevronRight className="sectionicn"/></Link> */}
+            </div>
+            <div className="divider" />
+          </div>
+
+          <p className="previousMembers"><a href="/previous-committees">View Previous Committees</a></p>
+
+
+          <div className="commiteeMembers">
+            <TheTeam/>
+          </div>
+        </div>
+      </div>
 
 
       {/* Footer */}

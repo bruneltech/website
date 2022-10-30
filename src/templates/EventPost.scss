@@ -180,8 +180,58 @@
 
                     font-size: 18px;
                 }
-                
-                // Stealing some stuff from WP CSS to make things a little easier.
+            
+
+                div{
+                    .wp-block-buttons{
+                        display: flex;
+                        gap: 0.5em;
+                        flex-wrap: wrap;
+                        align-items: center;
+                    }
+
+                    .wp-block-button{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: row;
+                        transition: .2s;
+        
+                        font-family: 'Raleway', sans-serif;
+                        font-size: 17px;
+                        font-weight: 500;
+        
+                        padding: .5rem;
+                        padding-left: 1.2rem;
+                        padding-right: 1.2rem;
+
+                        text-align: center;
+
+                        max-width: 150px;
+                        height: 50px;
+
+                        cursor: pointer;
+        
+                        color: white;
+                        background-color: #32AAED;
+                        border: none;
+
+                        .wp-block-button__link{
+                            color: white;
+                        }
+        
+                        &:hover{
+                            background-color: #265a88;
+
+                            .wp-block-button__link{
+                                color: white;
+                            }
+                        }
+
+                        
+                    }
+
+                }
             }
         }
     }

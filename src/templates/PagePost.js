@@ -27,8 +27,9 @@ const PagePostTemplate = ({data}) => {
 
             <Menu />
             <div className="pageContainer">
+                <p style={{display: 'none'}} data-typesense-field="postKind">Page</p>
                 <div className="pageContentMeta">
-                    <h2 className="pageTitle">{data.wpPage.title}</h2>
+                    <h2 data-typesense-field="postTitle" className="pageTitle">{data.wpPage.title}</h2>
                 </div>
 
                 <div className="pageContentContainer">
@@ -53,7 +54,6 @@ export const query = graphql`
     query($id: String!) {
         wpPage(id: {eq: $id}) {
             title
-            excerpt
             content
         }
     }

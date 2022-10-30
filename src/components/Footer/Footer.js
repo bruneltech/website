@@ -30,7 +30,7 @@ const Footer = () => {
 
                     
                     <div className="unionLogo">
-                        <a href="https://brunelstudents.com/societies/tech">
+                        <a href="https://brunelstudents.com/organisation/7158/">
                             <img src={EventLogo} alt="Union of Brunel Students" />
                         </a>
                     </div>
@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
 
             <div className="footer-extra">
-                <p className="brought">This website is <a className="link" href='https://github.com/bruneltech/website'>Open Source</a></p>
+                <p className="brought">This website is a work in progress, but is also <a className="link" href='https://github.com/bruneltech/website'>Open Source</a></p>
             </div>
         </footer>
     )

@@ -8,6 +8,8 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { motion } from "framer-motion";
 
+import {FaChevronRight} from 'react-icons/fa'
+
 const FeaturedCategory = (props) => {
     const data = useStaticQuery(graphql`
         query {
@@ -43,7 +45,13 @@ const FeaturedCategory = (props) => {
     return(
         <div className="recentPostsContainer">
             <div className="recentPostsContent">
-                <h2 className="sectionTitle">Society News</h2>
+                <div className="sectionMeta">
+                    <div className="sectCont">
+                        <h2 className="sectionTitle">Society News</h2>
+                        <Link to={data.allWpCategory.nodes[0].uri} className="sectionLink"><FaChevronRight className="sectionicn"/></Link>
+                    </div>
+                    <div className="divider"/>
+                </div>
 
                 <div className="recentPostsItems">
                     {data.allWpPost.nodes.map((post, index) => {
