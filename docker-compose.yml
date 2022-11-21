@@ -10,25 +10,16 @@ services:
         - typesense-data:/data
 
   gatsby:
-    build:
-      context: .
-      dockerfile: dockerfile
-    working_dir: /app
-
-    ports:
-      #- ${FRONTEND_INTERNAL_PORT}:80
-      - "${BT_INTERNAL_PORT}:${BT_INTERNAL_PORT}"
-
-    env_file:
-      - .env
-    
-    #command: "./entrypoint.sh"
-    command: "ln -s /save/node_modules/* ./node_modules/."
-    entrypoint: sh -c "gatsby develop -H 0.0.0.0 -p ${BT_INTERNAL_PORT}"
-
+    image: gatsbyjs/gatsby
     volumes:
       - .:/app
-      - /app/node_modules/
+    working_dir: /app
+    command: sh -c "npm install && npm develop --verbose"
+    ports:
+      - "${BT_INTERNAL_PORT}:${BT_INTERNAL_PORT}"
+    depends_on:
+      - typesense
+      -
 
   # nginx:
   #   image: nginx:latest
