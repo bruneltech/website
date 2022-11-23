@@ -73,7 +73,7 @@ const IndexPage = () => {
       {/* Recent Posts */}
       <RecentPosts/>
 
-      {/*<FeaturedCategory id="society-news-section" slug="society-news"/>*/}
+      <FeaturedCategory id="society-news-section" slug="society-news"/>
 
       <div className="committee-section">
         <div className="commiteeSectionContent">

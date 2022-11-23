@@ -140,6 +140,12 @@
 
             figure{
                 margin: 1em 0;
+                display: flex;
+                flex-wrap: wrap;
+
+                .is-layout-flex{
+                    display: flex;
+                }
 
                 .wp-block-gallery{
                     .has-nested-images{
@@ -189,6 +195,9 @@
                     position: relative;
                     flex-direction: column;
                     max-width: 100%;
+
+                    padding: 10px;
+
 
                     &:not(#individual-image){
                         width: calc(50% - 16px/2);
@@ -472,6 +481,25 @@
                     cite{
                        color: inherit;
                        font-style: italic; 
+                    }
+                }
+            }
+
+            
+            .committeeMember{
+                border-radius: 10px;
+                padding-top: 30px;
+                background-color: rgba(230,230,230);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                .wp-block-image{
+                    img{
+                        height: auto;
+                        max-width: 200px;
+                        border-radius: 100%;
                     }
                 }
             }

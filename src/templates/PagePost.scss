@@ -81,6 +81,12 @@
 
             figure{
                 margin: 1em 0;
+                display: flex;
+                flex-wrap: wrap;
+
+                .is-layout-flex{
+                    display: flex;
+                }
 
                 .wp-block-gallery{
                     .has-nested-images{
@@ -130,6 +136,8 @@
                     position: relative;
                     flex-direction: column;
                     max-width: 100%;
+
+                    padding: 10px;
 
 
                     &:not(#individual-image){

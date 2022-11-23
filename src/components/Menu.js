@@ -116,6 +116,26 @@ const Menu = ({ children }) => {
 
     }
 
+    React.useEffect(() => {
+        // If the screen width is more than 800px, remove the mobile menu.
+       
+        const updateWindowDimensions = () => {
+            const newWidth = window.innerWidth;
+            const mobileMenu = document.querySelector(".navElements_M_Content");
+            const mainBar = document.querySelector(".menuContainer");
+            const navContainer = document.querySelector(".navContent");
+
+            if(newWidth > 800){
+                mobileMenu.classList.remove("m_open");
+                mainBar.classList.remove("m_open");
+                navContainer.classList.remove("m_open");
+                setMOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', updateWindowDimensions);
+    }, []);
+
     const wrapperRef = React.useRef(null);
     //useOutsideAlerter(wrapperRef);
 

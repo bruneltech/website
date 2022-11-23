@@ -16,7 +16,7 @@ module.exports = {
       //"url": "http://techsoc-test.local/graphql",
       "url": "https://wp.bruneltech.net/graphql",
       html: {
-        useGatsbyImage: true
+        useGatsbyImage: false // This was causing a load of problems with the way wordpress did their CSS. 
       }
     }
   }, "gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
