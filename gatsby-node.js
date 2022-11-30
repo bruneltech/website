@@ -76,7 +76,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const BlogPosts = result.data.allWpPost.edges
   BlogPosts.forEach(post => {
-    console.log("Creating a page for: " + post.node.uri);
+    //console.log("Creating a page for: " + post.node.uri);
     createPage({
       path: `${post.node.uri}`,
       component: BlogPostTemplate,
@@ -88,7 +88,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const Pages = result.data.allWpPage.edges
   Pages.forEach(page => {
-    console.log("Creating a page for: " + page.node.uri);
+    //console.log("Creating a page for: " + page.node.uri);
     createPage({
       path: `${page.node.uri}`,
       component: PageTemplate,
@@ -100,7 +100,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const Categories = result.data.allWpCategory.edges
   Categories.forEach(category => {
-    console.log("Creating a category page for: " + category.node.uri);
+    //console.log("Creating a category page for: " + category.node.uri);
     createPage({
       path: `${category.node.uri}`,
       component: CategoryArchiveTemplate,
@@ -112,7 +112,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const Events = result.data.allWpEvent.edges
   Events.forEach(event => {
-    console.log("Creating a event page for: " + event.node.uri);
+    //console.log("Creating a event page for: " + event.node.uri);
     createPage({
       path: `${event.node.uri}`,
       component: EventPostTemplate,
@@ -125,7 +125,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // For when the project post type in the WP plugin starts to behave
   //const Projects = result.data.allWpProject.edges
   //Projects.forEach(project => {
-  //  console.log("Creating a project page for: " + project.node.uri);
+  //  //console.log("Creating a project page for: " + project.node.uri);
   //  createPage({
   //    path: `${project.node.uri}`,
   //    component: ProjectPostTemplate,

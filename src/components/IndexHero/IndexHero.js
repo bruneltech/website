@@ -54,7 +54,7 @@ const IndexHero = () => {
             // Every 5 seconds, change to a new post. Every few posts, revert to default.
             const interval = setInterval(() => {
                 if(postCount > data.allWpPost.edges.length - 1){
-                    console.log("resetting to default")
+                    ////console.log("resetting to default")
                     postCount = 0;
                     setButtonUrl("https://brunelstudents.com/organisation/7158/");
                     setButtonText("Join Us");
@@ -63,7 +63,7 @@ const IndexHero = () => {
                     setShowFeaturedIndicator(false);
                     setDarkenImage(false);
                 }else{
-                    console.log("choosing a post");
+                    //console.log("choosing a post");
                     const post = data.allWpPost.edges[Math.floor(Math.random() * data.allWpPost.edges.length)];
                     setButtonUrl(post.node.link);
                     setButtonText("Read More");
@@ -82,7 +82,7 @@ const IndexHero = () => {
                     }
                     buttons[postCount].classList.add("selected");
                 }catch(e){
-                    console.log("An error occured while attempting to change slide indicator. Error: " + e);
+                    //console.log("An error occured while attempting to change slide indicator. Error: " + e);
                 }
             }
             , 5000);

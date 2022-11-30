@@ -96,7 +96,7 @@ const Menu = ({ children }) => {
     }
 
     const retractSearch = () => {
-        console.log("removing search");
+        //console.log("removing search");
 
         const search = document.querySelector(".searchFieldContainer");
         const cancelBtn = document.querySelector(".cancelSearch");
