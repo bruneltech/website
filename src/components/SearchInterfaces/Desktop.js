@@ -5,10 +5,10 @@ import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter"
 const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
   server: {
     
-    apiKey: "xyz", // Be sure to use the search-only-api-key
+    apiKey: "kwDD7JzNzqEpi4afZ", // Be sure to use the search-only-api-key
     nodes: [
       {
-        host: "localhost",
+        host: "165.227.231.194",
         port: "8108",
         protocol: "http",
       },

@@ -75,12 +75,12 @@ module.exports = {
         default_sorting_field: "page_priority_score",
       },
       server: {
-        //apiKey: "kwDD7JzNzqEpi4afZ",
-        apiKey: "xyz",
+        apiKey: "kwDD7JzNzqEpi4afZ",
+        //apiKey: "xyz",
         nodes: [
           {
-            //host: "165.227.231.194",
-            host: '127.0.0.1',
+            host: "165.227.231.194",
+            //host: '127.0.0.1',
             port: "8108",
             protocol: "http",
           },
