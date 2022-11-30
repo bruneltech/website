@@ -22,8 +22,8 @@ services:
     env_file:
       - .env
     
-    #command: "./entrypoint.sh"
     command: "ln -s /save/node_modules/* ./node_modules/."
+    #entrypoint: "./entrypoint.sh"
     entrypoint: sh -c "gatsby develop -H 0.0.0.0 -p ${BT_INTERNAL_PORT}"
 
     volumes:

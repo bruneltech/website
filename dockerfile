@@ -1,19 +1,20 @@
-FROM node:16 AS builder
+FROM node:18 AS builder
 
+RUN mkdir /app
 WORKDIR /app
 
 COPY . .
 RUN chmod +x entrypoint.sh
-RUN yarn install
+RUN npm install
 
-FROM nginx:latest
-WORKDIR /usr/share/nginx/html
+#FROM nginx:latest
+#WORKDIR /usr/share/nginx/html
 
-RUN rm -rf ./*
-COPY --from=builder /app/public .
+#RUN rm -rf ./*
+#COPY --from=builder /app/public .
 
-FROM node:16
+#FROM node:18
 RUN npm install --global gatsby-cli && gatsby telemetry --disable && mkdir /save
-COPY --from=builder /app/node_modules /save/node_modules
+#COPY --from=builder /app/node_modules /save/node_modules
 
 ##ENTRYPOINT [ "./entrypoint.sh" ]

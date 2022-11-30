@@ -14,6 +14,8 @@ import "./homePage.scss"
 import Menu from "../components/Menu";
 import IndexHero from "../components/IndexHero/IndexHero";
 
+import BSODQR from "../images/bsod_qr.png"
+
 // markup
 const NotFoundPage = () => {
   return (
@@ -34,14 +36,16 @@ const NotFoundPage = () => {
             <br></br>        
             <p className="bsod_txt">0% complete</p>
 
-            <div className="funny_qr">
-              <div className="qr_img">
-
+            <div className="qr_container">
+              <div className="qr_img_container">
+                <img className="qr_img" src={BSODQR}/>
               </div>
 
-              <div clasName="errContxt">
-
-              </div>
+              {/* <div clasName="errContxt">
+                <p>For more information about this issue and possible fixes, visit https://stackoverflow.com</p>
+                <br/>
+                <p></p>
+              </div> */}
             </div>
           </div>
         </div>
