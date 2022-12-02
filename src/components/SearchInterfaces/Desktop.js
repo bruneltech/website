@@ -8,7 +8,7 @@ const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: "kwDD7JzNzqEpi4afZ", // Be sure to use the search-only-api-key
     nodes: [
       {
-        host: "165.227.231.194",
+        host: "127.0.0.1",
         port: "8108",
         protocol: "http",
       },

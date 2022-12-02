@@ -1,0 +1,165 @@
+.eventPostsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+
+    .pageContentMeta{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+
+        width: 100%;
+        min-height: 300px;
+        background-color: #214180;
+
+        .pageTitle{
+            font-family: 'Raleway', sans-serif;
+            font-size: 40px;
+            width: 90%;
+            font-weight: 500;
+            color: white;
+
+            @media (max-width: 570px){
+                font-size: 30px;
+            }
+
+        }
+    }
+
+
+    .eventPostsContent{
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        //align-items: center;
+        justify-content: center;
+        margin-top: 3.5rem;
+        margin-bottom: 2rem;
+
+
+        .sectionTitle{
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-top: 5.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Raleway', sans-serif;
+        }
+
+
+
+        .eventPostsItems{
+            // Responsive grid funny time
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+            grid-gap: 60px;
+            align-items: center;
+
+            .eventPostItem{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+
+                a{
+                    width: 100%;
+                    text-decoration: none;
+                }
+
+                overflow: hidden;
+                transition: .25s;
+
+                &:hover{
+                    box-shadow: 0px 5px 7px rgba(0,0,0,0.4);
+                }
+
+                .eventPost{
+                    height: 525px;
+                    
+                    overflow: hidden;
+
+                    .eventPostImage{
+                        min-width: 100%;
+                        height: 290px;
+                        //margin-bottom: 2rem;
+
+                        z-index: 5;
+
+                        overflow: hidden;
+
+                        img{
+                            width: 100%;
+                            height: 100%;
+
+                            object-fit: cover;
+                            transition: .5s;
+                        }
+                        
+                    }
+
+                    // On hover zoom the image in slightly, but keep it contained in the box
+                    &:hover{
+                        // Add shadow
+
+                        .eventPostImage{
+                            img{
+                                transform: scale(1.55);
+                            }
+                            
+                        }
+                    }
+
+                    .colourstrip{
+                        width: 100%;
+                        height: 5px;
+                        background-color: #1750A7;
+                    }
+
+                    .eventPostMeta{
+                        background-color: white;
+
+                        z-index: 10;
+
+                        height: 100%;
+                        padding: 20px;
+                        color: black;
+
+                        .eventPostCat{
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            font-style: italic;
+                            margin-bottom: 1rem;
+                            margin-top: 0;
+
+                            font-family: 'Raleway', sans-serif;
+
+                            color: #1750A7;
+                        }
+
+                        .postDate{
+                            font-size: 1rem;
+                            font-weight: 600;
+                            margin-top: 0;
+                            margin-bottom: 5px;
+
+                            font-family: 'Raleway', sans-serif;
+                            
+                        }
+
+                        .eventPostTitle{
+                            font-size: 1.4rem;
+                            font-weight: 600;
+                            margin-top: 0;
+
+                            font-family: 'Raleway', sans-serif;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { FaCalendar, FaLocationArrow } from "react-icons/fa";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
@@ -14,8 +15,22 @@ import DefaultFeaturedImage from "../images/hero-front.png";
 
 
 const EventPostTemplate = ({data}) => {
+    const [isEventOver, setIsEventOver] = useState(false);
+
     const evStart = data.wpEvent.eventDateStart;
     const evEnd = data.wpEvent.eventDateEnd;
+
+    React.useEffect(() => {
+        const now = new Date();
+        const evEnd = new Date(data.wpEvent.eventDateEnd);
+        if (now > evEnd) {
+            setIsEventOver(true);
+        }
+
+        return () => {
+            setIsEventOver(false);
+        }
+    }, [data.wpEvent.eventDateEnd]);
 
     const addCalReminder = () => {
         // Generate a new calendar
@@ -96,6 +111,14 @@ const EventPostTemplate = ({data}) => {
 
                 <div className="eventContentContainer">
                     <div className="eventContent">
+                        
+                        {/* If the event is over, then show the "Event Over" message. */}
+                        {isEventOver ?
+                            <div className="eventOverNotif" style={{}}>
+                                <p>This event has now ended. For upcoming events, check out the tab on the <a href="/">home page!</a></p>
+                            </div>
+                        : null}
+
                         <div className="eventContentBody"
                             dangerouslySetInnerHTML={{__html: data.wpEvent.content}}
                         />
