@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-next-seo',
+    'gatsby-plugin-styled-components',
     {
     resolve: 'gatsby-source-wordpress',
     options: {
