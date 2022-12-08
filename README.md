@@ -20,6 +20,8 @@ There are currently no unit tests for this repository.
 
 
 ## Deployment
+**IMPORTANT:** Make sure your server has a swapfile if you aren't sure if it has enough resources to do a full build without. Our 5GB swapfile hasn't cuased us any issues when doing a full clean build.
+
 > TODO: deal with this later
 
 ## Configuring the rebuild webhook
