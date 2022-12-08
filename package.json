@@ -20,6 +20,7 @@
     "@googlemaps/react-wrapper": "^1.1.32",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "babel-plugin-styled-components": "^2.0.7",
     "framer-motion": "^6.3.3",
     "fs": "^0.0.1-security",
     "gatsby": "^4.13.0",
@@ -32,7 +33,7 @@
     "gatsby-plugin-sass": "^5.13.0",
     "gatsby-plugin-sharp": "^4.13.0",
     "gatsby-plugin-sitemap": "^5.13.0",
-    "gatsby-plugin-styled-components": "^5.4.0",
+    "gatsby-plugin-styled-components": "^5.25.0",
     "gatsby-plugin-typesense": "^0.3.0",
     "gatsby-source-filesystem": "^4.13.0",
     "gatsby-source-wordpress": "^6.13.0",
@@ -48,6 +49,7 @@
     "react-icons": "^4.3.1",
     "react-instantsearch-dom": "^6.30.3",
     "sass": "^1.51.0",
+    "styled-components": "^5.3.6",
     "typesense-instantsearch-adapter": "^2.4.1"
   }
 }
